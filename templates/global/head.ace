@@ -24,10 +24,17 @@ body
           img.home-img src="static/img/home.png"
 
         ul.pure-menu-list
-          li.pure-menu-item
-            a.pure-menu-link href="/about" about
-          li.pure-menu-item
-            a.pure-menu-link href="/network" network
-          li.pure-menu-item
-            a.pure-menu-link href="/links" links
+        // Populated by js
 
+= javascript
+  const current = {{.Slug}}
+  const navMenu = document
+    .getElementById('menu')
+    .getElementsByClassName('pure-menu-list')[0];
+
+  for (const link of ['about', 'network', 'links']) {
+    const item = document.createElement('li')
+    item.className = 'pure-menu-item'
+    item.innerHTML = `<a class="pure-menu-link${(link === current ? ' active' : '')}" href="/${link}">${link}</a>`
+    navMenu.appendChild(item)
+  }
