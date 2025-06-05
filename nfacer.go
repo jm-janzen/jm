@@ -25,8 +25,6 @@ func Route(w http.ResponseWriter, r *http.Request) {
 func HandleDefault(w http.ResponseWriter, r *http.Request) {
 	var requestedPath = r.URL.Path[1:] // Trim leading `/'
 
-	prefix := "bodies/"
-
 	// Default to rendering home template
 	if requestedPath == "" {
 		requestedPath = "home"
@@ -34,16 +32,17 @@ func HandleDefault(w http.ResponseWriter, r *http.Request) {
 
 	var pageTitle string = requestedPath
 
-	RenderTpl(w, r, prefix+requestedPath, pageTitle)
+	RenderTpl(w, r, requestedPath, pageTitle)
 
 }
 
 // Renders given template by name (string)
 // FIXME handle errors better once dev settles
 func RenderTpl(w http.ResponseWriter, r *http.Request, template string, pageTitle string) {
+	templatesPath := "templates/bodies/"
 
 	// Load given template by name
-	tpl, err := ace.Load("templates/"+template, "", nil)
+	tpl, err := ace.Load(templatesPath+template, "", nil)
 	if err != nil {
 
 		// Invalid resource - hardcode to redirect to 404 page
@@ -51,14 +50,14 @@ func RenderTpl(w http.ResponseWriter, r *http.Request, template string, pageTitl
 		pageTitle, template = "not found", "404"
 
 		// If this fails for some reason, just quit
-		if tpl, err = ace.Load("templates/bodies/404", "", nil); err != nil {
+		if tpl, err = ace.Load(templatesPath+"404", "", nil); err != nil {
 			log.Println("Error:", err.Error())
 			return
 		}
 	}
 
 	// Print IP, URL, requested path; path to template file
-	log.Println("Serving template:", "templates/bodies/"+template)
+	log.Println("Serving template:", templatesPath+template)
 
 	// Load our Data obj
 	data := Data{Title: "jm - " + pageTitle}
