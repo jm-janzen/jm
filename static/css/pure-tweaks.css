@@ -3,7 +3,7 @@
  */
 
 /* Menu header (ie: "JM Janzen") */
-div#menu div.pure-menu a.pure-menu-heading {
+nav#menu div.pure-menu a.pure-menu-heading {
     background-color: var(--bright-lime);
     color: #232323;
 }
@@ -19,7 +19,7 @@ img.home-img {
     height: auto;
 }
 
-div#menu {
+nav#menu {
     border-right: 2px solid var(--bright-lime);
 }
 
@@ -38,12 +38,12 @@ div#layout a#menuLink.menu-link span:after {
 
 
 /* External links */
-div#menu div.pure-menu a.x-origin {
+nav#menu div.pure-menu a.x-origin {
     color: var(--dim-lime)
 }
 
 /* External links label */
-div#menu div.pure-menu li.x-label {
+nav#menu div.pure-menu li.x-label {
     background-color: #101010;
     color: #505050;
     text-align: center;
@@ -58,7 +58,7 @@ div#menu div.pure-menu li.x-label {
     background-color: #0abf0b;
 }
 
-div#menu div.pure-menu a.pure-menu-heading:hover {
+nav#menu div.pure-menu a.pure-menu-heading:hover {
     background-color: #232323;
     color: var(--bright-lime);
 }
