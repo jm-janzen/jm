@@ -10,8 +10,7 @@ import (
 
 type Data struct {
 	Title string
-	Other string
-	Num   int
+	Slug string
 }
 
 // Handlers receive and log an HTTP req, then serve our pages (using _render)
@@ -60,7 +59,7 @@ func RenderTpl(w http.ResponseWriter, r *http.Request, template string, pageTitl
 	log.Println("Serving template:", templatesPath+template)
 
 	// Load our Data obj
-	data := Data{Title: "jm - " + pageTitle}
+	data := Data{Title: "jm - " + pageTitle, Slug: template}
 
 	// Apply parsed template to w, passing in our Data obj
 	if err := tpl.Execute(w, data); err != nil {
