@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"jmjanzen/domains/jmjanzen.com/handlers"
+	"jm/domains/jmjanzen.com/handlers"
 )
 
 // Handlers receive and log an HTTP req, then serve our pages (using _render)
