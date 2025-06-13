@@ -1,4 +1,4 @@
 # Ignore vim swap files
-*.sw*
+*.sw[a-p]
 tmp
 
