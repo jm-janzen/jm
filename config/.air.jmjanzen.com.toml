@@ -1,14 +1,14 @@
-root = "."
+root = "./domains/jmjanzen.com"
 testdata_dir = "testdata"
 tmp_dir = "tmp"
 
 [build]
   args_bin = []
-  bin = "./tmp/main"
-  cmd = "go build -o ./tmp/main ."
+  bin = "./tmp/jmjanzen.com"
+  cmd = "go build -o ./tmp/jmjanzen.com ./cmd/jmjanzen.com"
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "testdata", "utils"]
-  exclude_file = []
+  exclude_file = ["./domains/jmjanzen.com"]
   exclude_regex = ["_test.go"]
   exclude_unchanged = false
   follow_symlink = false
