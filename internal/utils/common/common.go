@@ -9,7 +9,7 @@ import (
 // Change dir to project root, logging this action
 func ChdirWebserverRoot() {
 	cwd, err := os.Getwd()
-	if err == nil {
+	if err != nil {
 		log.Fatal(err)
 	}
 
