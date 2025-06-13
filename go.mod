@@ -1,4 +1,4 @@
-module github.com/jm-janzen/nfacer
+module jmjanzen
 
 go 1.23
 
