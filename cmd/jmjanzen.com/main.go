@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/jm-janzen/nfacer/utils/common" // Helper functions specific to this project
+	"jmjanzen/utils/common" // Helper functions specific to this project
 	"github.com/yosssi/ace"                    // HTML template engine
 )
 
