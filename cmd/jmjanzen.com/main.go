@@ -1,8 +1,8 @@
 package main
 
 import (
-	"jmjanzen/domains/jmjanzen.com/routes"
-	"jmjanzen/internal/utils/common"
+	"jm/domains/jmjanzen.com/routes"
+	"jm/internal/utils/common"
 )
 
 

@@ -1,4 +1,4 @@
-module jmjanzen
+module jm
 
 go 1.24
 
