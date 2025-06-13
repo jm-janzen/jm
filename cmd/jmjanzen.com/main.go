@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"jmjanzen/utils/common" // Helper functions specific to this project
+	"jmjanzen/internal/utils/common"
 	"github.com/yosssi/ace"                    // HTML template engine
 )
 
