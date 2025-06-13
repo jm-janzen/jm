@@ -12,13 +12,12 @@ func ChdirWebserverRoot() {
 	if err != nil {
 		Crash(err, 1)
 	}
-	if cwd == os.Getenv("GOPATH") {
-		targetWd := path.Join(cwd, "src", "github.com", "jm-janzen", "nfacer")
+	log.Println("cwd:" + cwd)
+	targetWd := path.Join(cwd, "domains", "jmjanzen.com")
 
-		log.Printf("Changing Working Directory from '%v' to '%v'\n", cwd, targetWd)
+	log.Printf("Changing Working Directory from '%v' to '%v'\n", cwd, targetWd)
 
-		os.Chdir(targetWd)
-	}
+	os.Chdir(targetWd)
 }
 
 // Log error, and exit using given exit code
