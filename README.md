@@ -2,6 +2,10 @@
 
 Source of my canonical online presences.
 
+|source|url|desc|
+|---|---|---|
+|[jmjanzen.com](./domains/jmjanzen.com)|https://jmjanzen.com|my main website|
+
 ---
 
 ## Run jmjanzen.com locally
