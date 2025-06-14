@@ -12,7 +12,7 @@ import (
 
 func Launch() {
 	router := gin.Default()
-	router.SetTrustedProxies([]string{os.Getenv("API_TRUSTED_PROXY")})
+	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
