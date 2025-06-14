@@ -6,7 +6,7 @@ import (
 	"path"
 )
 
-// Change dir to project root, logging this action
+// Change dir to web server root, logging this action
 func ChdirWebserverRoot() {
 	cwd, err := os.Getwd()
 	if err != nil {
