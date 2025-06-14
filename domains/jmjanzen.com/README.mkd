@@ -1,25 +1,5 @@
-## New Facer
+# JM's main website
 
-See Old Facer [here](https://github.com/jm-janzen/EC2-facer)
+See [root README](/README.md#run-jmjanzencom-locally) for instructions on how to run.
 
-This is my ~glorified business card~ personal homepage. I started it a while ago, because I wanted to do something with Go, and play around with some HTML/CSS/JS.
-
-### Running
-```shell
-go run github.com/jm-janzen/nfacer
-```
-
-### Running (Monitor Source Changes)
-
-Note you'll want to connect to http://localhost:8080 if you want to make use of live reloading in browser.
-```shell
-go run github.com/air-verse/air
-```
-
-### Uses `ace` HTML templating engine
-
-[Project Home](https://github.com/yosssi/ace)
-
-### (Optional) uses `air` live reloader
-
-[Project Home](https://github.com/air-verse/air)
+Previously this was served by [nfacer](https://github.com/jm-janzen/nfacer) (archived).
