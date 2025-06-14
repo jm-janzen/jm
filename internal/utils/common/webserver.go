@@ -1,4 +1,4 @@
-package common
+package webserver
 
 import (
 	"log"
@@ -6,14 +6,14 @@ import (
 	"path"
 )
 
-// Change dir to web server root, logging this action
-func ChdirWebserverRoot() {
+// Change dir to given path, logging action
+func Root(targetPath string) {
 	cwd, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	targetWd := path.Join(cwd, "domains", "jmjanzen.com")
+	targetWd := path.Join(cwd, targetPath)
 
 	log.Printf("Changing Working Directory from '%v' to '%v'\n", cwd, targetWd)
 
