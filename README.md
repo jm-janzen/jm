@@ -10,38 +10,6 @@ Source of my canonical online presences.
 
 ---
 
-## Run jmjanzen.com locally
+## Running locally
 
-### Launch manually
-
-```shell
-go run cmd/jmjanzen.com/main.go
-```
-
-### Watch file changes and live reload
-
-Using [air](github.com/air-verse/air) (might need to proxy port -- see official docs).
-
-```shell
-air -c ./config/.air.jmjanzen.com.toml
-```
-
-## Run api.jmjanzen.com locally
-
-```shell
-go run cmd/api.jmjanzen.com
-```
-
-## Run jmjanzen.cv locally
-
-```
-go run cmd/jmjanzen.cv/main.go
-```
-
-### Make the html résumé
-
-I mean it's just an html file, but I use the incredible [pdf2htmlEX](https://github.com/pdf2htmlEX/pdf2htmlEX), like:
-
-```shell
-pdf2htmlEX assets/resume.pdf ./assets/resume.html --zoom 1.5
-```
+to run any particular domain locally, simply execute the command `go run ./cmd/<DOMAIN>/main.go`, or if you want live reloading of the frontend use [air](github.com/air-verse/air) with the configuration files provided at `./config/air.<DOMAIN>.toml`.
