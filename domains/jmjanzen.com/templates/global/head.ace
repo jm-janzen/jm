@@ -24,7 +24,7 @@ body
           img.home-img src="static/img/home.png"
 
         ul.pure-menu-list
-        // Populated by js
+        // Populated by js below
 
 = javascript
   const current = {{.Slug}}
