@@ -17,7 +17,7 @@ Source of my canonical online presences.
 go run cmd/jmjanzen.com/main.go
 ```
 
-### Watch file changes
+### Watch file changes and live reload
 
 Using [air](github.com/air-verse/air) (might need to proxy port -- see official docs).
 
