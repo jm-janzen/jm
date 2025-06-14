@@ -24,10 +24,7 @@ func Launch() {
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	// Handle favicon, home img (anon func)
-	//mux.HandleFunc("/favicon.ico", handlers.HandleFile())
-	mux.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "static/img/fav/favicon.ico")
-	})
+	mux.HandleFunc("/favicon.ico", handlers.HandleFile)
 
 	// If any issue starting, log err, and exit(1)
 	listenPort := ":6060"
