@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gin-gonic/gin"
 	"github.com/yosssi/ace"
 )
 
@@ -12,34 +13,17 @@ type Data struct {
 	Slug string
 }
 
-func Default(w http.ResponseWriter, r *http.Request) {
-	var requestedPath = r.URL.Path[1:] // Trim leading `/'
-
-	// Default to rendering home template
-	if requestedPath == "" {
-		requestedPath = "home"
-	}
-
-	var pageTitle string = requestedPath
-
-	RenderTpl(w, r, requestedPath, pageTitle)
-}
-
-func HandleFile (w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "static/img/fav/favicon.ico")
-}
-
-func RenderTpl(w http.ResponseWriter, r *http.Request, template string, pageTitle string) {
+func RenderAce(c *gin.Context, template string) {
 	templatesPath := "templates/bodies/"
 
 	tpl, err := ace.Load(templatesPath+template, "", nil)
 	if err != nil {
 
 		log.Println("Error:", err.Error(), "trying 404 instead")
-		pageTitle, template = "not found", "404"
+		template = "404"
 
 		// If 404 fails for some reason, just quit
-		if tpl, err = ace.Load(templatesPath+"404", "", nil); err != nil {
+		if tpl, err = ace.Load(templatesPath+template, "", nil); err != nil {
 			log.Println("Error:", err.Error())
 			return
 		}
@@ -47,12 +31,11 @@ func RenderTpl(w http.ResponseWriter, r *http.Request, template string, pageTitl
 
 	log.Println("Serving template:", templatesPath+template)
 
-	data := Data{Title: "jm - " + pageTitle, Slug: template}
+	data := Data{Title: "jm", Slug: template}
 
-	if err := tpl.Execute(w, data); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+	if err := tpl.Execute(c.Writer, data); err != nil {
+		http.Error(c.Writer, err.Error(), http.StatusInternalServerError)
 		log.Println("Error:", err.Error())
 		return
 	}
 }
-

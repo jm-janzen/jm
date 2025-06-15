@@ -1,29 +1,33 @@
 package routes
 
 import (
-	"log"
-	"net/http"
+	"os"
 
 	"jm/domains/jmjanzen.com/handlers"
+
+	"github.com/gin-gonic/gin"
 )
 
-func Route(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v %v %v%v", r.RemoteAddr, r.Method, r.Host, r.RequestURI)
-	handlers.Default(w, r)
+type Data struct {
+	Title string
+	Slug string
 }
 
 func Launch() {
-	mux := http.NewServeMux()
+	router := gin.Default()
+	router.Static("/static/", "./static/")
 
-	mux.HandleFunc("/", Route)
+	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 
-	fs := http.FileServer(http.Dir("static"))
-	mux.Handle("/static/", http.StripPrefix("/static/", fs))
+	router.StaticFile("/favicon.ico", "static/img/fav/favicon.ico")
 
-	mux.HandleFunc("/favicon.ico", handlers.HandleFile)
+	router.GET("/", func(c *gin.Context) {
+		handlers.RenderAce(c, "home")
+	})
 
-	listenPort := ":6060"
-	log.Printf("Listening on port %v", listenPort)
-	log.Fatal(http.ListenAndServe(listenPort, mux))
+	router.GET("/:slug", func(c *gin.Context) {
+		handlers.RenderAce(c, c.Param("slug"))
+	})
+
+	router.Run(os.Getenv("COM_HOST"))
 }
-
