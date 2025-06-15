@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"html/template"
 	"log"
 	"net/http"
 
@@ -8,30 +9,40 @@ import (
 	"github.com/yosssi/ace"
 )
 
-type Data struct {
+type pageData struct {
 	Title string
 	Slug string
 }
 
-func RenderAce(c *gin.Context, template string) {
-	templatesPath := "templates/bodies/"
+const templatesPath = "templates/bodies/"
 
+func fetchTemplate(template string) (*template.Template, error) {
 	tpl, err := ace.Load(templatesPath+template, "", nil)
 	if err != nil {
 
-		log.Println("Error:", err.Error(), "trying 404 instead")
-		template = "404"
-
 		// If 404 fails for some reason, just quit
-		if tpl, err = ace.Load(templatesPath+template, "", nil); err != nil {
+		if tpl, err = ace.Load(templatesPath+"404", "", nil); err != nil {
 			log.Println("Error:", err.Error())
-			return
+			return nil, err
 		}
 	}
 
-	log.Println("Serving template:", templatesPath+template)
+	return tpl, err
+}
 
-	data := Data{Title: "jm", Slug: template}
+func RenderAce(c *gin.Context, template string) {
+
+	tpl, err := fetchTemplate(template)
+	if err != nil {
+		tpl, err = fetchTemplate("404")
+		if err != nil {
+			log.Println("Error:", err.Error())
+			return
+		}
+		return
+	}
+
+	data := pageData{Title: "jmjanen - "+template, Slug: template}
 
 	if err := tpl.Execute(c.Writer, data); err != nil {
 		http.Error(c.Writer, err.Error(), http.StatusInternalServerError)
