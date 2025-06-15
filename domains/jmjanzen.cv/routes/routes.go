@@ -19,4 +19,3 @@ func Launch() {
 
 	router.Run(os.Getenv("CV_HOST"))
 }
-

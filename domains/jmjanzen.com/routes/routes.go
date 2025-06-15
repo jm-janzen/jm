@@ -10,7 +10,7 @@ import (
 
 type Data struct {
 	Title string
-	Slug string
+	Slug  string
 }
 
 func Launch() {

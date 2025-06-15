@@ -11,7 +11,7 @@ import (
 
 type pageData struct {
 	Title string
-	Slug string
+	Slug  string
 }
 
 const templatesPath = "templates/bodies/"
@@ -42,7 +42,7 @@ func RenderAce(c *gin.Context, template string) {
 		return
 	}
 
-	data := pageData{Title: "jmjanen - "+template, Slug: template}
+	data := pageData{Title: "jmjanen - " + template, Slug: template}
 
 	if err := tpl.Execute(c.Writer, data); err != nil {
 		http.Error(c.Writer, err.Error(), http.StatusInternalServerError)

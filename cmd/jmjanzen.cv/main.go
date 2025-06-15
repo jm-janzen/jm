@@ -1,7 +1,6 @@
 package main
 
 import (
-
 	"jm/domains/jmjanzen.cv/routes"
 )
 

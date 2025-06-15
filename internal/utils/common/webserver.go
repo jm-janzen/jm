@@ -19,4 +19,3 @@ func Root(targetPath string) {
 
 	os.Chdir(targetWd)
 }
-

@@ -19,7 +19,7 @@ type Modes struct {
 // Probably put these in their own modes/ dir...
 type Me struct {
 	ID   int    `json:"id"`
-	Name *Name   `json:"name,omitempty"`
+	Name *Name  `json:"name,omitempty"`
 	Mode string `json:"mode"`
 }
 
