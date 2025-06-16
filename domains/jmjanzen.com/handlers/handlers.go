@@ -42,7 +42,7 @@ func RenderAce(c *gin.Context, template string) {
 		return
 	}
 
-	data := pageData{Title: "jmjanen - " + template, Slug: template}
+	data := pageData{Title: "jmjanzen - " + template, Slug: template}
 
 	if err := tpl.Execute(c.Writer, data); err != nil {
 		http.Error(c.Writer, err.Error(), http.StatusInternalServerError)
