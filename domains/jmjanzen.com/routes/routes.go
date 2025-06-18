@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"jm/domains/jmjanzen.com/handlers"
+	"jm/internal/webserver"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,6 +15,8 @@ type Data struct {
 }
 
 func Launch() {
+	webserver.Root("domains/jmjanzen.com")
+
 	router := gin.Default()
 	router.Static("/static/", "./static/")
 
