@@ -7,6 +7,10 @@ nav#menu div.pure-menu a.pure-menu-heading {
     background-color: var(--bright-lime);
     color: #232323;
 }
+nav#menu div.pure-menu a.pure-menu-heading:hover {
+    background-color: #232323;
+    color: var(--bright-lime);
+}
 
 code {
     color: var(--dim-lime);
@@ -42,11 +46,6 @@ div#layout a#menuLink.menu-link span:after {
     text-decoration: none;
     white-space: nowrap;
     background-color: #0abf0b;
-}
-
-nav#menu div.pure-menu a.pure-menu-heading:hover {
-    background-color: #232323;
-    color: var(--bright-lime);
 }
 
 nav#menu
