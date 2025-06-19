@@ -28,7 +28,15 @@ div.content
   h2.content-subhead rip & tear & learn
 
   = javascript
+    let clicks = 0
     function boom() {
+      if (++clicks > 1) {
+        if (clicks > 5) {
+          document.getElementById('pinky-caption').innerHTML = 'still a dead pinky'
+        }
+        return
+      }
+
       const path =  `/static/img/pinky-demon-boom.gif#${Math.random()}`
       document.getElementById('pinky').setAttribute('src', path)
       setTimeout(() => {
