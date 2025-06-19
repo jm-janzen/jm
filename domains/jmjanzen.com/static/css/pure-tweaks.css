@@ -54,8 +54,8 @@ div.pure-menu
 ul.pure-menu-list
 li.pure-menu-item
 a.pure-menu-link:hover, .active {
-    color: #232323 !important;
-    background-color: var(--bright-lime) !important;
+    background-color: #333;
+    color: #999;
 }
 
 /* Defaults to 50, which is a little too roomy imho*/
