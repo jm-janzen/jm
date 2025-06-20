@@ -8,7 +8,6 @@ import (
 	docs "jm/domains/api.jmjanzen.com/docs"
 
 	"github.com/gin-gonic/gin"
-	_ "github.com/joho/godotenv/autoload"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )

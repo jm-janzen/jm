@@ -11,6 +11,7 @@ import (
 	cvRoutes "jm/domains/jmjanzen.cv/routes"
 
 	"github.com/urfave/cli/v3"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
