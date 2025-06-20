@@ -68,8 +68,13 @@ func GetMe(c *gin.Context) {
 			// Merge match with defaults
 			data, err := json.Marshal(me)
 			if err != nil {
-				fmt.Println("Error marshalling:", err)
+				c.JSON(
+					http.StatusInternalServerError,
+					Error{err.Error()},
+				)
+				return
 			}
+
 			json.Unmarshal(data, &defaultMode)
 			c.JSON(http.StatusOK, me)
 			return
