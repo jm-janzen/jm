@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"net/http"
 	"os"
 
 	"jm/domains/jmjanzen.com/handlers"
@@ -30,6 +31,10 @@ func Launch() {
 
 	router.GET("/:slug", func(c *gin.Context) {
 		handlers.RenderAce(c, c.Param("slug"))
+	})
+
+	router.GET("/blog", func(c *gin.Context) {
+		c.Redirect(http.StatusPermanentRedirect, "https://blog.jmjanzen.com")
 	})
 
 	router.Run(os.Getenv("COM_HOST"))
