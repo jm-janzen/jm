@@ -5,9 +5,12 @@ import (
 	"os"
 
 	"jm/domains/api.jmjanzen.com/handlers/me"
+	docs "jm/docs"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func Launch() {
@@ -17,10 +20,17 @@ func Launch() {
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"meUrl": "https://api.jmjanzen.com/me{/id}",
+			"swaggerUrl": "https://api.jmjanzen.com/docs",
 		})
 	})
 	router.GET("/me", me.GetMe)
 	router.GET("/me/:id", me.GetMe)
+
+	docs.SwaggerInfo.BasePath = "/"
+	router.GET("/docs", func(ctx *gin.Context) {
+		ctx.Redirect(http.StatusPermanentRedirect, "/swagger/index.html")
+	})
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	router.Run(os.Getenv("API_HOST"))
 }

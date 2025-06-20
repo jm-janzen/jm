@@ -29,6 +29,13 @@ type Name struct {
 	Last  *string `json:"last,omitempty"`
 }
 
+// GetMe godoc
+// @Summary      Get me
+// @Description  get a representation of me by mode id
+// @Produce      json
+// @Param        id   path      int  false  "which mode"
+// @Success      200  {object}  me.Me
+// @Router       /me/{id} [get]
 // Get associated me from modes. If id is not provided, default to 1
 // FIXME Add flag to make dates human readable?
 func GetMe(c *gin.Context) {

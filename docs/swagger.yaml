@@ -1,0 +1,39 @@
+definitions:
+  me.Me:
+    properties:
+      id:
+        type: integer
+      mode:
+        type: string
+      name:
+        $ref: '#/definitions/me.Name'
+    type: object
+  me.Name:
+    properties:
+      first:
+        type: string
+      last:
+        type: string
+      nick:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /me/{id}:
+    get:
+      description: get a representation of me by mode id
+      parameters:
+      - description: which mode
+        in: path
+        name: id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/me.Me'
+      summary: Get me
+swagger: "2.0"
