@@ -6,7 +6,6 @@ import (
 	"jm/domains/jmjanzen.cv/handlers"
 
 	"github.com/gin-gonic/gin"
-	_ "github.com/joho/godotenv/autoload"
 )
 
 func Launch() {
