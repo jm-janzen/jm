@@ -1,4 +1,9 @@
 definitions:
+  me.Error:
+    properties:
+      message:
+        type: string
+    type: object
   me.Me:
     properties:
       id:
@@ -44,5 +49,9 @@ paths:
           description: Not Found
           schema:
             $ref: '#/definitions/me.NotFound'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/me.Error'
       summary: Get me
 swagger: "2.0"
