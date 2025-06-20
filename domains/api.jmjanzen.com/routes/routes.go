@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"jm/domains/api.jmjanzen.com/handlers/me"
-	docs "jm/docs"
+	docs "jm/domains/api.jmjanzen.com/docs"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/joho/godotenv/autoload"
