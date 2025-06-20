@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Starting a blog</title>
+</head>
+<body>
+<nav>
+	<a href="/">back to blogs</a>
+	<br />
+</nav>
+<hr />
+<article>
+	<h1>Starting a Blog</h1>
+
+	<p>
+		<label>Created:</label> 2025-06-20<br />
+		<label>Author:</label> J.M. Janzen<br />
+	</p>
+
+	<p>
+		Dear programmer or other tech afflicted obsessive. If you start your
+		blog with code, you will just keep writing code,
+		because--spoiler--writing code is fun, creative, and lets you practice
+		what you're good at. Whereas writing regular-human-readable text is
+		squishy and uncomfortable. Human text may have a syntax, but it has an
+		infuriatingly elastic fail condition. You can even fail in ways more
+		logical than syntactic and be congratulated on it (I could name a few
+		authors here, but an inaugural blog post is not the place to be making
+		enemies).
+	</p>
+	<p>
+		So while a typo may cause a sentence to fail interpretation on the
+		client's end, you're not going to get an error message. Even worse, if
+		your point is illogical or just <strong>bad</strong>, you can still
+		serve it and share, and maybe even spread it. That's just the risk you
+		take when sharing squishy thoughts instead of hard, clean code.
+	</p>
+	<p>
+		Which brings me to...
+	</p>
+
+	<h3>Step 1: Don't Start by Building a CMS</h3>
+	<p>
+		Real people won't see your code. Even most people-of-tech won't.
+		Like, are you running to check out the source code for this blog? I
+		don't think so. So who's the real audience? That's right, it's you.
+		It's always been you. So you're writing for yourself. Why not write
+		<em>about yourself</em>? And then maybe the odd lost netizen has a
+		chance to learn a bit about what you've got to say.
+	</p>
+	<p>
+		So put the compiler down. You, with the transpiler--in the back; put
+		that down too. Do not start a blog by building a CMS, unless you plan
+		to write about building a CMS. And then only build the CMS after you've
+		started your blog (but that's my idea -- go get your own (actually, I
+		take it back, we can share)).
+	</p>
+
+	<h3>Step 2: Wait 6 Years for Inspiration to Strike</h3>
+	<p>
+		You may elect to skip this step, but I'm just sharing my own process,
+		and procrastinating for 6+ years and then one day deciding to start
+		writing for my personal homepage is a process that worked me. YMMV.
+	</p>
+
+	<h3>Step 3: Pick a Topic</h3>
+	<p>
+		Ideally this will be something other than "Starting a Blog" and will be
+		something of actual interest to others and not just scrape bait for
+		LLMs. But the important thing is to actually just start. So if you've
+		got a more interesting idea than mine then you're doing great. Just
+		write about that.
+	</p>
+	<p>
+		From what I've seen as a voracious reader of others' blogged material,
+		one's first blog is usually buried deep in a stack of others. Once the
+		nerd get to blogging, it seems like it's hard for them to stop (not me,
+		though, I'll be different. This is it for me. This one article, humph).
+	</p>
+
+	<h4>Step 3.1: Write from the Heart</h4>
+	<p>
+		Sidenote on the topic of LLMs, I would avoid using them to generate
+		your text, not just because it degrades the quality of writing on the
+		open net (think of the poor, OC hungry bot farms), but because it
+		doesn't add anything of value if what you're trying to express are your
+		own thoughts.
+	</p>
+	<p>
+		Look at the above paragraphs--these could easily be expanded to a 5 or
+		10 minute read by prompting for elaboration. It might even be
+		<em>more</em> interesting, but it won't be yours, because what you omit
+		is just as much a function of your writing as what you include --
+		whether intentionally or not.
+	</p>
+	<p>
+		OK, sorry about the rant. But yeah, just pick something to talk about
+		-- something you yourself want to write about. There is of course no
+		guarantee that anyone will want to read it, but that was never the
+		point. The point is the saying.
+	</p>
+
+	<h3>Step 4: Avoid Creep</h3>
+	<p>
+		Dear reader, I'm assuming that you are technically inclined, and so I
+		beseech you to avoid feature creep. If, however you are a regular
+		schmegular human being who doesn't know a transport layer from an event
+		bus, you already ahead of the game here, and can skip this step.
+	</p>
+	<p>
+		OK nerds, at the risk of repeating <strong>Step 1</strong> I need you
+		to stop. Just stop playing with your software for 1 day, so that you
+		can do This Thing--this Blog Writing Thing. That means
+
+		For instance, just while writing this short blog, I desperately wanted
+		to add:
+		<ol>
+			<li>Anchor tags for sub headers</li>
+			<li>
+				Custom <a href="https://gin-gonic.com/en/docs/examples/html-rendering/#custom-template-funcs">template functions</a>
+			</li>
+			<li>Live reloading (will actually want this pretty soon)</li>
+			<li>A hashing function so client could verify written text??</li>
+		</ol>
+	</p>
+	<p>
+		I need you to write these ideas down, and <em>move on</em>. Codify them as
+		issues, tickets, or even just <code>// TODOs</code> in your source code. I
+		myself have a plain old <code>todo.txt</code> file sitting in the root
+		of <a href="https://github.com/jm-janzen/jm">this repo</a> (untracked,
+		because I have <em>some</em> pride).
+	</p>
+	<p>
+		Ideally you will be choosing a plain format for your actual writing.
+		Whether that be serving actual plain text, transpile markdown, or just
+		html like me. I personally went with the latter, because--after years
+		abstracting it behind various JS libraries--there is a kind of perverse
+		thrill to just slinging fkn <em>raw html</em> at folks. Also, it gives
+		me a chance to play with <a href="https://emmet.io/">Emmet</a> +
+		<a href="https://github.com/mattn/emmet-vim">emmet-vim</a>.
+	</p>
+
+	<h3>Step 5: Obviously it's POSSE, right?</h3>
+	<p>
+		See <a href="https://indieweb.org/POSSE">here</a> for a good
+		definition, and here for an <a
+		href="https://www.citationneeded.news/posse/">expanded discussion</a>.
+		It stands for Post on Own Site Syndicate Elsewhere. Basically what this
+		means is that you own the homebase of your thoughts, and the socials get
+		copies.
+	</p>
+	<p>
+		If you even partake in the mainstream socials, these are your thoughts
+		so you deserve to have total control over them. I'm not going advocate
+		for homelabing here, because that's <strong>a)</strong> a more
+		specialized set of... interests, and <strong>b)</strong> not always
+		super feasible in every municipality.
+	</p>
+	<p>
+		I won't list them all out here, because you will be inundated with
+		options if you just perform a simple web search on the topic, but a few
+		standouts are <a href="https://neocities.org/">Neocities</a> (I think
+		it skews pretty young, so I'm not totally comfortable wading my
+		middle-aged self into that group of <em>fellow kids</em>), and...
+		Actually, that's it. I know I said a few, but but that's all I can
+		remember off the top of my head, and like I said, you can easily just
+		search for yourself.
+	</p>
+
+	<h3>Step 6: Include Lots of Links!!!</h3>
+	<p>
+		This is more a matter of opinion, but it's my blog and this is my
+		opinion. Or, as Daniel the Melon puts it
+		<a href="https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters">
+		Every site needs a Links Page</a>. Basically, any website without
+		external links is a dead end (looking at a lot of professional "brand"
+		websites (including my own)). And no, linking to other areas where you
+		have a web presence doesn't count! Links are a chance for you to share
+		the loot of the internet, your interests
+	</p>
+
+	<h3>Step 7: Exit Early</h3>
+	<p>
+		Ideally, keep it short. But if you can't do that, leave with something
+		unsaid. Not as engagement bait (you should not be focusing on that),
+		but just to leave some room for your reader's imagination. Give them
+		the space to exercise some creativity in the reading of your article.
+	</p>
+	<p>
+		The above will also help if you struggle with over-explaining. This
+		isn't a Reddit flame thread, where you have to add defensive qualifiers
+		for every single point, or else risk getting roasted on your weakest
+		point. There is no invisible audience, or chorus of up and down -voters
+		here, so any fans or haters that make it to your inbox have got there
+		honestly.
+	</p>
+
+</article>
+<hr />
+<footer>
+	<p>
+		Would you kindly direct all comments to my email.
+	</p>
+</footer>
+</body>
+</html>
