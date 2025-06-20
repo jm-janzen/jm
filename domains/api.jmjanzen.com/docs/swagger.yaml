@@ -17,6 +17,11 @@ definitions:
       nick:
         type: string
     type: object
+  me.NotFound:
+    properties:
+      message:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
@@ -35,5 +40,9 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/me.Me'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/me.NotFound'
       summary: Get me
 swagger: "2.0"
