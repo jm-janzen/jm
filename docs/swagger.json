@@ -1,0 +1,63 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/me/{id}": {
+            "get": {
+                "description": "get a representation of me by mode id",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get me",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "which mode",
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/me.Me"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "me.Me": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "mode": {
+                    "type": "string"
+                },
+                "name": {
+                    "$ref": "#/definitions/me.Name"
+                }
+            }
+        },
+        "me.Name": {
+            "type": "object",
+            "properties": {
+                "first": {
+                    "type": "string"
+                },
+                "last": {
+                    "type": "string"
+                },
+                "nick": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
