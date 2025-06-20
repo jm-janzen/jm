@@ -7,6 +7,7 @@ import (
 	"os"
 
 	apiRoutes "jm/domains/api.jmjanzen.com/routes"
+	blogRoutes "jm/domains/blog.jmjanzen.com/routes"
 	comRoutes "jm/domains/jmjanzen.com/routes"
 	cvRoutes "jm/domains/jmjanzen.cv/routes"
 
@@ -25,6 +26,8 @@ func main() {
 				apiRoutes.Launch()
 			case "jmjanzen.cv":
 				cvRoutes.Launch()
+			case "blog.jmjanzen.com":
+				blogRoutes.Launch()
 			default:
 				message := fmt.Sprintf("Not a known domain name '%s'", domainName)
 				return cli.Exit(message, 1)
