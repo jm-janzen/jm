@@ -36,6 +36,12 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/me.Me"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/me.NotFound"
+                        }
                     }
                 }
             }
@@ -66,6 +72,14 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "nick": {
+                    "type": "string"
+                }
+            }
+        },
+        "me.NotFound": {
+            "type": "object",
+            "properties": {
+                "message": {
                     "type": "string"
                 }
             }

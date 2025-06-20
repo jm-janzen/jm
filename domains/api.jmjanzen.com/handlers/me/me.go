@@ -29,12 +29,17 @@ type Name struct {
 	Last  *string `json:"last,omitempty"`
 }
 
+type NotFound struct {
+	Message string `json:"message"`
+}
+
 // GetMe godoc
 // @Summary      Get me
 // @Description  get a representation of me by mode id
 // @Produce      json
 // @Param        id   path      int  false  "which mode"
 // @Success      200  {object}  me.Me
+// @Failure      404  {object}  me.NotFound
 // @Router       /me/{id} [get]
 // Get associated me from modes. If id is not provided, default to 1
 // FIXME Add flag to make dates human readable?
@@ -69,7 +74,7 @@ func GetMe(c *gin.Context) {
 
 	c.JSON(
 		http.StatusNotFound,
-		gin.H{"message": fmt.Sprint("id not found: ", queryParam)},
+		NotFound{fmt.Sprint("id not found: ", queryParam)},
 	)
 }
 
