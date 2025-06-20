@@ -42,12 +42,26 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/me.NotFound"
                         }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/me.Error"
+                        }
                     }
                 }
             }
         }
     },
     "definitions": {
+        "me.Error": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
         "me.Me": {
             "type": "object",
             "properties": {

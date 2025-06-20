@@ -32,6 +32,9 @@ type Name struct {
 type NotFound struct {
 	Message string `json:"message"`
 }
+type Error struct {
+	Message string `json:"message"`
+}
 
 // GetMe godoc
 // @Summary      Get me
@@ -40,6 +43,7 @@ type NotFound struct {
 // @Param        id   path      int  false  "which mode"
 // @Success      200  {object}  me.Me
 // @Failure      404  {object}  me.NotFound
+// @Failure      500  {object}  me.Error
 // @Router       /me/{id} [get]
 // Get associated me from modes. If id is not provided, default to 1
 // FIXME Add flag to make dates human readable?
@@ -54,7 +58,7 @@ func GetMe(c *gin.Context) {
 		var errMessage = fmt.Sprintf("Couldn't parse id: %s", queryParam)
 		c.JSON(
 			http.StatusInternalServerError,
-			gin.H{"error": errMessage},
+			Error{errMessage},
 		)
 		return
 	}
