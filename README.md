@@ -13,4 +13,4 @@ Source of my canonical online presences.
 
 ## Running locally
 
-to run any particular domain locally, simply execute the command `go run ./cmd/<DOMAIN>/main.go`, or if you want live reloading of the frontend use [air](github.com/air-verse/air) with the configuration files provided at `./config/air.<DOMAIN>.toml`.
+To run any particular domain locally, simply execute the command `go run ./cmd/main.go <DOMAIN>`, or if you want live reloading of the frontend use [air](github.com/air-verse/air) with the configuration files provided at `./config/air.<DOMAIN>.toml`.
