@@ -15,15 +15,15 @@ div.content
   p#content-about. I have been working professionally as a software developer
     for {milis}ms (or {years} years).
 
-  p. I'm pretty comfortable along the entire contemporary stack, especially now with libraries
-    like ReactJS and frameworks like NextJS etc, increasingly formalising
-    <abbr title="front-end">FE</abbr> work, making it less a matter of opinion, and more a set
-    of best practices. (I'm all for creativity in personal projects but for work stuff I prefer
-    boring and battle-tested.)
+  p. Though I'm more of a back-ender, I'm pretty comfortable along the entire contemporary
+    stack, especially now with libraries like ReactJS and frameworks like NextJS etc,
+    increasingly formalising <abbr title="front-end">FE</abbr> work, making it less a matter
+    of opinion, and more a set of best practices. (I'm all for creativity in personal
+    projects but for work stuff I prefer boring and battle-tested.)
 
-  p. I've never really specialised in one side or the other, but because I enjoy working in the
-    terminal so much, my skills have naturally inclined toward the backend side of things.
-    I just think it's neat.
+  p. Lately I've been getting more and more into the <em>infra</em> side of backend
+    engineering. You know how when you brick your machine and wish you could just roll back
+    the change, or start fresh with all your changes up until that point?
 
   h2.content-subhead rip & tear & learn
 
@@ -57,15 +57,16 @@ div.content
   h3.content-subhead JM meets his first linux grognard
 
   p. Near the end of graduating, I was lucky to get a student placement at a really cool
-    linux shop working with embedded software, where I met my first mentor. He was an old
-    school OpenBSD contributor who had <em>the coolest</em> terminal workflow I had ever
-    seen. He set me up with my first <code>.vimrc</code> and showed me the ropes with
+    linux shop working in embedded software -- this is where I met my first mentor. He was
+    an old school OpenBSD contributor who had <em>the coolest</em> terminal workflow I had
+    ever seen. He set me up with my first <code>.vimrc</code> and showed me the ropes with
     various other packages that would become my daily drivers in the years to come
-    (<b>git</b> and other fundamental CLI tools).
+    (<b>git</b>, <a href="https://www.gnu.org/software/coreutils/">the GNU coreutils</a>,
+    and other fundamental CLI tools).
 
-  p. As you may have gleaned, aesthetics played a big role in my inclination toward
-    becoming a software developer. There's something about working in the terminal that looks
-    and feels <i>so cool</i> to me.
+  p. This appreciate for the aesthetics of the Unix developer flow played a big role in my
+    inclination toward becoming a software developer. There's something about working in
+    the terminal that looks and feels <i>so cool</i> to me.
 
   h2.content-subhead like my fav text editor I'm modal lol
 
