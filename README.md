@@ -7,6 +7,7 @@ Source of my canonical online presences.
 |[jmjanzen.com](./domains/jmjanzen.com)|https://jmjanzen.com|my main website|
 |[api.jmjanzen.com](./domains/api.jmjanzen.com)|https://api.jmjanzen.com|api of me|
 |[jmjanzen.cv](./domains/jmjanzen.cv)|https://jmjanzen.cv|my résumé|
+|[blog.jmjanzen.com](./domains/blog.jmjanzen.com)|https://blog.jmjanzen.com|the blog|
 
 ---
 
