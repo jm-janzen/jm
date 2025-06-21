@@ -57,11 +57,11 @@ div.content
   h3.content-subhead JM meets his first linux grognard
 
   p. Near the end of graduating, I was lucky to get a student placement at a really cool
-    linux shop, where I met my first mentor. He was an old school OpenBSD contributor who
-    had <em>the coolest</em> terminal workflow I had ever seen. He set me up with my first
-    <code>.vimrc</code> and showed me the ropes with various other packages that would
-    become my daily drivers in the years to come (<b>git</b> and other fundamental CLI
-    tools).
+    linux shop working with embedded software, where I met my first mentor. He was an old
+    school OpenBSD contributor who had <em>the coolest</em> terminal workflow I had ever
+    seen. He set me up with my first <code>.vimrc</code> and showed me the ropes with
+    various other packages that would become my daily drivers in the years to come
+    (<b>git</b> and other fundamental CLI tools).
 
   p. As you may have gleaned, aesthetics played a big role in my inclination toward
     becoming a software developer. There's something about working in the terminal that looks
