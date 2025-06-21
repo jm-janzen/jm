@@ -9,22 +9,22 @@ div#main
 
   div.content
 
-    h2.content-subhead internet foothold
+    h2.content-subhead about this place
     p Welcome to the personal homepage of <abbr title='Pronounced "J.M."'>JM</abbr> Janzen - that's me; I'm JM, and I'm the webmaster around these here parts. Got a problem with it? That's cool. I don't have a problem with you, so enjoy your stay.
 
-    p For the curious, see the <a href="https://github.com/jm-janzen/nfacer">project&nbsp;source</a> for this website (basically just a Go router with some Ace template interpreting). Some version of this website has been going since 2016, and it wasn't much more interesting back then either. You can find the previous version running at <a href="https://old.jmjanzen.com/">old.jmjanzen.com</a>. This here version actually feels little too clean currently, and I'd love to get back to some of that messy experimentation that I used to enjoy.
+    p For the curious, see the <a href="https://github.com/jm-janzen/jm">source repo</a> for this website (in a nutshell: <a href="https://github.com/gin-gonic/gin">gin-gonic/gin</a> as a router, and some Ace templates). Some version of this website has been going since 2016. You can find the earliest version, trapped in amber and running at <a href="https://old.jmjanzen.com/">old.jmjanzen.com</a>. Isn't that timer cute? And check out that background -- that's the git log of the commits that went into making the website. I remember being pretty chuffed about that hahaa.
+
+    p So back to this place. I'm working on injecting a bit more personality into this current version, but it's a process of a lifetime.
 
     p So yeah, like every personal homepage this one is under construction. (Please try not to trip over any 🚧️ signs you might find.)
 
-    h2.content-subhead but for real i hate this website
-
-    p Like what do I even do with it? It's too personal to get really creative, but if it stays this bland it's not really worth the bandwidth or disk space it's taking up.
+    h2.content-subhead i hate this website
 
     p Having a website tied to your IRL name is a bit of a drag for an overthinker like me. I can't help but wonder about the various audiences that might visit: Family and friends, internet randos<sup>&dagger;</sup>, co-workers, prospective employers??
 
     p So just <abbr title="For Your Information">FYI</abbr> that I do have an actual personality beyond software development and being a diligent worker<sup>&Dagger;</sup>, it's just that maybe a <s>glorified business card</s> personal "brand" (🤮️) website might not be the best place for expressing that.
 
-    p. OK, good talk. Enjoy the rest of the website!
+    p. But I'm trying. I actually love this website, and am slowly turning it into something to be proud of.
 
     hr
 
