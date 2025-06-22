@@ -6,20 +6,10 @@ definitions:
     type: object
   me.Me:
     properties:
+      data: {}
       id:
         type: integer
       mode:
-        type: string
-      name:
-        $ref: '#/definitions/me.Name'
-    type: object
-  me.Name:
-    properties:
-      first:
-        type: string
-      last:
-        type: string
-      nick:
         type: string
     type: object
   me.NotFound:

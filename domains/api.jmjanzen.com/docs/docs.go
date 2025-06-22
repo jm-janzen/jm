@@ -65,27 +65,11 @@ const docTemplate = `{
         "me.Me": {
             "type": "object",
             "properties": {
+                "data": {},
                 "id": {
                     "type": "integer"
                 },
                 "mode": {
-                    "type": "string"
-                },
-                "name": {
-                    "$ref": "#/definitions/me.Name"
-                }
-            }
-        },
-        "me.Name": {
-            "type": "object",
-            "properties": {
-                "first": {
-                    "type": "string"
-                },
-                "last": {
-                    "type": "string"
-                },
-                "nick": {
                     "type": "string"
                 }
             }
