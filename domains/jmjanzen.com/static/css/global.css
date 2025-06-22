@@ -56,6 +56,13 @@ span.caption {
     color: #999999;
 }
 
+abbr[title], acronym[title] {
+  cursor: default;
+}
+abbr[title]:hover, acronym[title] {
+  color: black;
+}
+
 /* Footnotes light, except dagger marks which are default #777 */
 p.footnote {
     color: #AFAFAF;
