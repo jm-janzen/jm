@@ -1,0 +1,10 @@
+= include templates/global/head .
+
+div#main
+  div.header
+
+    div.content
+
+      object data="https://blog.jmjanzen.com" width="100%" height="400"
+
+
