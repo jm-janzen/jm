@@ -1,0 +1,44 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    image: server/main:latest
+
+  jmjanzen.com:
+    image: server/main:latest
+    depends_on:
+      - server
+    ports:
+      - 8080:8080
+    env_file: .env
+    command: /bin/server jmjanzen.com
+
+  api.jmjanzen.com:
+    image: server/main:latest
+    depends_on:
+      - server
+    ports:
+      - 8181:8181
+    env_file: .env
+    command: /bin/server api.jmjanzen.com
+
+
+  jmjanzen.cv:
+    image: server/main:latest
+    depends_on:
+      - server
+    ports:
+      - 8282:8282
+    env_file: .env
+    command: /bin/server jmjanzen.cv
+
+  blog.jmjanzen.com:
+    image: server/main:latest
+    depends_on:
+      - server
+    ports:
+      - 8383:8383
+    env_file: .env
+    command: /bin/server blog.jmjanzen.com
