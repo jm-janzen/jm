@@ -15,18 +15,10 @@ type Modes struct {
 	Modes []Me `json:"modes"`
 }
 
-// FIXME Make structs for each mode, too
-// Probably put these in their own modes/ dir...
 type Me struct {
 	ID   int    `json:"id"`
-	Name *Name  `json:"name,omitempty"`
 	Mode string `json:"mode"`
-}
-
-type Name struct {
-	First *string `json:"first,omitempty"`
-	Nick  *string `json:"nick,omitempty"`
-	Last  *string `json:"last,omitempty"`
+	Data interface{}
 }
 
 type NotFound struct {
@@ -65,17 +57,6 @@ func GetMe(c *gin.Context) {
 
 	for _, me := range modes {
 		if me.ID == id {
-			// Merge match with defaults
-			data, err := json.Marshal(me)
-			if err != nil {
-				c.JSON(
-					http.StatusInternalServerError,
-					Error{err.Error()},
-				)
-				return
-			}
-
-			json.Unmarshal(data, &defaultMode)
 			c.JSON(http.StatusOK, me)
 			return
 		}
@@ -88,9 +69,7 @@ func GetMe(c *gin.Context) {
 }
 
 var modes []Me
-var defaultMode Me
 
-// FIXME Make... better. Much better.
 func init() {
 	file, err := os.Open("./assets/modes.json")
 	if err != nil {
@@ -103,17 +82,4 @@ func init() {
 	}
 
 	json.Unmarshal(byteValue, &modes)
-
-	// for default mode
-	file, err = os.Open("./assets/default-mode.json")
-	if err != nil {
-		panic(err)
-	}
-
-	byteValue, err = io.ReadAll(file)
-	if err != nil {
-		panic(err)
-	}
-
-	json.Unmarshal(byteValue, &defaultMode)
 }
