@@ -45,7 +45,7 @@ func RenderAce(c *gin.Context, slug string) {
 
 	data := pageData{
 		Title: "JM Janzen's " + word.Capitalise(slug),
-		Slug: slug,
+		Slug:  slug,
 	}
 
 	if err := tpl.Execute(c.Writer, data); err != nil {

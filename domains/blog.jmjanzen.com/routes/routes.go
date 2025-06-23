@@ -20,4 +20,3 @@ func Launch() {
 
 	router.Run(os.Getenv("BLOG_HOST"))
 }
-

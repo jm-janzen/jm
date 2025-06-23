@@ -21,4 +21,3 @@ func Default(c *gin.Context) {
 		nil,
 	)
 }
-
