@@ -29,6 +29,7 @@ type Error struct {
 }
 
 // GetMe godoc
+//
 //	@Summary		Get me
 //	@Description	get a representation of me by mode id
 //	@Produce		json
@@ -37,6 +38,7 @@ type Error struct {
 //	@Failure		404	{object}	me.NotFound
 //	@Failure		500	{object}	me.Error
 //	@Router			/me/{id} [get]
+//
 // Get associated me from modes. If id is not provided, default to 1
 // FIXME Add flag to make dates human readable?
 func GetMe(c *gin.Context) {

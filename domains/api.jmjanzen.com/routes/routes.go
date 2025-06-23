@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"os"
 
-	"jm/domains/api.jmjanzen.com/handlers/me"
 	docs "jm/domains/api.jmjanzen.com/docs"
+	"jm/domains/api.jmjanzen.com/handlers/me"
 
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
@@ -18,7 +18,7 @@ func Launch() {
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"meUrl": c.Request.Host + "/me{/id}",
+			"meUrl":      c.Request.Host + "/me{/id}",
 			"swaggerUrl": c.Request.Host + "/docs",
 		})
 	})
