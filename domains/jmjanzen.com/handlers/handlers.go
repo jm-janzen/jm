@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"html/template"
+	"jm/internal/word"
 	"log"
 	"net/http"
 
@@ -42,7 +43,10 @@ func RenderAce(c *gin.Context, template string) {
 		return
 	}
 
-	data := pageData{Title: "jmjanzen - " + template, Slug: template}
+	data := pageData{
+		Title: "JM Janzen's " + word.Capitalise(template),
+		Slug: template,
+	}
 
 	if err := tpl.Execute(c.Writer, data); err != nil {
 		http.Error(c.Writer, err.Error(), http.StatusInternalServerError)
