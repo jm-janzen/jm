@@ -17,8 +17,8 @@ type pageData struct {
 
 const templatesPath = "templates/bodies/"
 
-func fetchTemplate(template string) (*template.Template, error) {
-	tpl, err := ace.Load(templatesPath+template, "", nil)
+func fetchTemplate(slug string) (*template.Template, error) {
+	tpl, err := ace.Load(templatesPath+slug, "", nil)
 	if err != nil {
 
 		// If 404 fails for some reason, just quit
@@ -31,9 +31,9 @@ func fetchTemplate(template string) (*template.Template, error) {
 	return tpl, err
 }
 
-func RenderAce(c *gin.Context, template string) {
+func RenderAce(c *gin.Context, slug string) {
 
-	tpl, err := fetchTemplate(template)
+	tpl, err := fetchTemplate(slug)
 	if err != nil {
 		tpl, err = fetchTemplate("404")
 		if err != nil {
@@ -44,8 +44,8 @@ func RenderAce(c *gin.Context, template string) {
 	}
 
 	data := pageData{
-		Title: "JM Janzen's " + word.Capitalise(template),
-		Slug: template,
+		Title: "JM Janzen's " + word.Capitalise(slug),
+		Slug: slug,
 	}
 
 	if err := tpl.Execute(c.Writer, data); err != nil {
