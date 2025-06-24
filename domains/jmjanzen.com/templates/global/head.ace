@@ -20,8 +20,10 @@ body
 
     nav#menu
       div.pure-menu
-        a.pure-menu-heading href="#" JM Janzen
-          img.home-img src="static/img/home.png"
+        div.pure-menu-heading
+          a href="/home" JM Janzen
+          span#mode-controls
+            button#mode-toggle title="Toggle light/dark mode" 🌚️
 
         ul.pure-menu-list
         // Populated by js below
@@ -32,10 +34,32 @@ body
     .getElementById('menu')
     .getElementsByClassName('pure-menu-list')[0];
 
+  // Build nav menu programmatically
+
   for (const link of ['about', 'network', 'links', 'blog']) {
     const item = document.createElement('li')
-    const classes = 'pure-menu-link' + (link === current ? ' active' : '')
+    const classes = 'pure-menu-link' + (link === current ? ' nav-active' : '')
     item.className = 'pure-menu-item'
     item.innerHTML = `<a class="${classes}" href="/${link}">${link}</a>`
     navMenu.appendChild(item)
+  }
+
+  // Mode toggle logic
+
+  const modeButton = document.getElementById('mode-toggle')
+  modeButton.addEventListener('click', () => {
+    const currentMode = localStorage.getItem('mode')
+    setMode(currentMode == 'light' ? 'dark' : 'light')
+  })
+
+  function setMode(mode) {
+    document.documentElement.setAttribute('data-theme', mode)
+    localStorage.setItem('mode', mode)
+    modeButton.textContent = mode == 'dark' ? "🌝️" : "🌚️"
+  }
+
+  // Preserve mode
+  const currentMode = localStorage.getItem('mode') || 'light'
+  if (currentMode) {
+    setMode(currentMode)
   }

@@ -3,69 +3,77 @@
  */
 
 /* Menu header (ie: "JM Janzen") */
-nav#menu div.pure-menu a.pure-menu-heading {
-    background-color: var(--bright-lime);
-    color: #232323;
+nav#menu
+div.pure-menu .pure-menu-heading,
+#mode-controls {
+    padding: 0;
+    background-color: var(--pop);
 }
-nav#menu div.pure-menu a.pure-menu-heading:hover {
-    background-color: var(--pale-lime);
-    color: var(--dark-lime);
+#mode-controls {
+    display: inline-block;
+    background-color: transparent;
+}
+nav#menu div.pure-menu .pure-menu-heading:hover {
+    background-color: light-dark(var(--pale-lime), #806fff);
+    color: var(--strong);
 }
 
-code {
-    color: var(--dim-lime);
+.header h1 {
+    color: var(--readable);
 }
 
-/* "home" image next to Menu Header */
-img.home-img {
-    padding-left: 5%;
-    width: 15%;
+span#mode-controls button {
+    margin-left: 33%;
     height: auto;
 }
 
 nav#menu {
-    border-right: 2px solid var(--bright-lime);
+    border-right: 2px solid var(--pop);
+    background-color: var(--passive);
+}
+
+nav#menu .pure-menu-heading a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--demure);
 }
 
 /* Hamburger bg */
 div#layout a#menuLink.menu-link {
-    background-color: var(--dim-lime);
-    border-bottom: 2px solid var(--bright-lime);
-    border-right:  2px solid var(--bright-lime);
+    background-color: var(--muted);
+    border-bottom: 2px solid var(--pop);
+    border-right:  2px solid var(--pop);
 }
 /* Hamburger lines */
 div#layout a#menuLink.menu-link span,
 div#layout a#menuLink.menu-link span:before,
 div#layout a#menuLink.menu-link span:after {
-    background-color: var(--bright-lime);
-}
-
-/* Internal links */
-.pure-menu-link .pure-menu-sep {
-    display: block;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: #0abf0b;
+    background-color: var(--pop);
 }
 
 nav#menu
 div.pure-menu
 ul.pure-menu-list
 li.pure-menu-item
-a.pure-menu-link:hover, .active {
-    background-color: #333;
-    color: #999;
+a.pure-menu-link:hover, .nav-active {
+    background-color: var(--agency-bg-selected) !important;
+    color: var(--agency-fg-selected) !important;
 }
 
 /* Defaults to 50, which is a little too roomy imho*/
 .content-subhead {
     margin-top: 20px;
-    color: var(--dim-lime);
+    color: var(--muted);
 }
 h2.content-subhead {
     border-width: 0 0 3px;
     border-style: solid;
-    border-image: linear-gradient(to right, var(--dim-lime) 10%, var(--pale-lime) 30%, transparent 60%);
+    border-image: linear-gradient(
+        to right,
+        var(--muted) 10%,
+        var(--hinting) 30%,
+        transparent 60%
+    );
     border-image-slice: 1;
 }
 

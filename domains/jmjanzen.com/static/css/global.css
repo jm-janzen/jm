@@ -6,23 +6,63 @@
  * Global colo vars
  */
 :root {
+  /* Light variants */
   --bright-lime:  #9cff00;
   --dim-lime:     #6baf00;
   --dark-lime:    #436d00;
   --pale-lime:    #dbffa3;
   --whispy-lime:  #f5ffe6;
+
+  /* Dark variants */
+  --bright-grape: #6630ff;
+  --dim-grape:    #7750ff;
+  --dark-grape:   #806fff;
+  --pale-grape:   #4700b3;
+  --whispy-grape: #606060;
+
+  --pop:     light-dark(var(--bright-lime), var(--bright-grape));
+  --muted:   light-dark(var(--dim-lime),    var(--dim-grape));
+  --strong:  light-dark(var(--dark-lime),   var(--dark-grape));
+  --hinting: light-dark(var(--pale-lime),   var(--pale-grape));
+  --ghostly: light-dark(var(--whispy-lime), var(--whispy-grape));
+
+  --faint: light-dark(#afafaf, #505050);
+  --demure: light-dark(#232323, #dddddd);
+  --passive: light-dark(#191818, var(--pale-grape));
+
+  /* For nav links, selectables */
+  --agency-bg-waiting:  light-dark(#191818, var(--pale-grape));
+  --agency-fg-waiting:  light-dark(#999, #cdcdcd);
+
+  --agency-bg-selected: light-dark(#333, var(--bright-grape));
+  --agency-fg-selected: light-dark(white, white);
+
+  --readable: light-dark(#191818, #cdcdcd);
+  --legible: light-dark(#777, #bbbbbb);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  color: var(--legible);
+  background-color: light-dark(white, rgba(0,0,0,0));
 }
 
 /*
  * Anchors w/in content
  */
 div.content a, .citation {
-    background-color: var(--pale-lime);
-    color: var(--dark-lime);
+    background-color: var(--hinting);
+    color: var(--strong);
     transition: color 0.15s;
 }
 div.content a:hover, .citation {
-    color: var(--dim-lime);
+    color: var(--muted);
     background-color: none;
 }
 
@@ -31,16 +71,16 @@ img.jm-profile-pic {
     display: block;
     margin: auto;
     margin-top: 1%;
-    border: 2px solid #191818;
+    border: 2px solid var(--readable);
 }
 
 
 hr {
-    color: var(--pale-lime);
+    color: var(--hinting);
 }
 
-strong {
-    color: var(--dark-lime);
+strong, b {
+    color: var(--strong);
 }
 
 blockquote {
@@ -50,7 +90,11 @@ blockquote {
 label {
     margin-right: 0.5em;
     font-size: 1.2em;
-    color: var(--dark-lime);
+    color: var(--strong);
+}
+
+code {
+    color: var(--muted);
 }
 
 span.caption {
@@ -65,11 +109,19 @@ abbr[title]:hover, acronym[title] {
 }
 em {
   background-color: var(--whispy-lime);
+
+button#mode-toggle {
+    border: none;
+    border-radius: 50%;
+    background-color: var(--pop);
+}
+button#mode-toggle:hover {
+    background-color: var(--strong);
 }
 
 /* Footnotes light, except dagger marks which are default #777 */
 p.footnote {
-    color: #AFAFAF;
+    color: var(--faint);
 }
 p.footnote sup {
     color: #666;
