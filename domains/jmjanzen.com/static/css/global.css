@@ -18,7 +18,7 @@
   --dim-grape:    #7750ff;
   --dark-grape:   #806fff;
   --pale-grape:   #4700b3;
-  --whispy-grape: #606060;
+  --whispy-grape: rgba(80, 0, 255, 0.3);
 
   --pop:     light-dark(var(--bright-lime), var(--bright-grape));
   --muted:   light-dark(var(--dim-lime),    var(--dim-grape));
@@ -108,7 +108,8 @@ abbr[title]:hover, acronym[title] {
   color: black;
 }
 em {
-  background-color: var(--whispy-lime);
+  background-color: var(--ghostly);
+}
 
 button#mode-toggle {
     border: none;
