@@ -16,9 +16,9 @@ type Modes struct {
 }
 
 type Me struct {
-	ID   int    `json:"id"`
-	Mode string `json:"mode"`
-	Data interface{}
+	ID   int         `json:"id"`
+	Mode string      `json:"mode"`
+	Data interface{} `json:"data"`
 }
 
 type NotFound struct {
