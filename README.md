@@ -14,3 +14,5 @@ Source of my canonical online presences.
 ## Running locally
 
 To run any particular domain locally, simply execute the command `go run ./cmd/main.go <DOMAIN>`, or if you want live reloading of the frontend use [air](github.com/air-verse/air) with the configuration files provided at `./config/air.<DOMAIN>.toml`.
+
+If you just want to run everything, say like on a VPS, use `docker compose up`. Currently this relies on the presence of `.env`, but there are no secrets in there, and the provided example of `.env.example` should work for most setups.
