@@ -66,7 +66,7 @@ func GetInterests(c *gin.Context) {
 //	@Produce		json
 //	@Param			slug	path		string	true	"slug of specific interest"
 //	@Success		200		{object}	interests.Interest
-//	@Router			/interest/{slug} [get]
+//	@Router			/interests/{slug} [get]
 func GetInterest(c *gin.Context) {
 	var interest Interest
 	collection, cancel := db.GetCollection("interests")

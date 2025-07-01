@@ -15,7 +15,24 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/interest/{slug}": {
+        "/interests": {
+            "get": {
+                "description": "get a JSON array of strings",
+                "summary": "Get all interests",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/interests/{slug}": {
             "get": {
                 "description": "get interest, based on provided slug",
                 "produces": [
@@ -36,23 +53,6 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/interests.Interest"
-                        }
-                    }
-                }
-            }
-        },
-        "/interests": {
-            "get": {
-                "description": "get a JSON array of strings",
-                "summary": "Get all interests",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
                         }
                     }
                 }
@@ -134,7 +134,10 @@ const docTemplate = `{
         "me.Me": {
             "type": "object",
             "properties": {
-                "data": {},
+                "data": {
+                    "type": "object",
+                    "additionalProperties": {}
+                },
                 "id": {
                     "type": "integer"
                 },
