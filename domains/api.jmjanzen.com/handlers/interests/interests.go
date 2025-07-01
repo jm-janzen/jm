@@ -19,6 +19,14 @@ type Interest struct {
 	ElaborationUrl *string  `bson:"elaborationUrl" json:"elaborationUrl,omitempty"`
 }
 
+// GetInterests godoc
+//
+//	@Summary		Get all interests
+//	@Description	get a JSON array of strings
+//	@Product		json
+//	@Success		200	{array} string
+//	@Router			/interests [get]
+//
 // Returns JSON array of interests in slug form like
 //
 //	["reading", "coding", "etc"]
@@ -52,7 +60,14 @@ func GetInterests(c *gin.Context) {
 	c.JSON(http.StatusOK, slugs)
 }
 
-// Returns JSON object of interest, based on provided slug
+// GetInterest godoc
+//
+//	@Summary		Get interest
+//	@Description	get interest, based on provided slug
+//	@Produce		json
+//	@Param			slug	path		string	true	"slug of specific interest"
+//	@Success		200		{object}	interests.Interest
+//	@Router			/interest/{slug} [get]
 func GetInterest(c *gin.Context) {
 	client, cancel := db.Connect()
 	defer cancel()

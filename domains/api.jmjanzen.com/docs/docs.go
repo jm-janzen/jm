@@ -15,6 +15,49 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/interest/{slug}": {
+            "get": {
+                "description": "get interest, based on provided slug",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get interest",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "slug of specific interest",
+                        "name": "slug",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/interests.Interest"
+                        }
+                    }
+                }
+            }
+        },
+        "/interests": {
+            "get": {
+                "description": "get a JSON array of strings",
+                "summary": "Get all interests",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/me/{id}": {
             "get": {
                 "description": "get a representation of me by mode id",
@@ -54,6 +97,32 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "interests.Interest": {
+            "type": "object",
+            "properties": {
+                "aliases": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "elaborationUrl": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "passion": {
+                    "type": "number"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "summary": {
+                    "type": "string"
+                }
+            }
+        },
         "me.Error": {
             "type": "object",
             "properties": {

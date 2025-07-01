@@ -1,4 +1,21 @@
 definitions:
+  interests.Interest:
+    properties:
+      aliases:
+        items:
+          type: string
+        type: array
+      elaborationUrl:
+        type: string
+      name:
+        type: string
+      passion:
+        type: number
+      slug:
+        type: string
+      summary:
+        type: string
+    type: object
   me.Error:
     properties:
       message:
@@ -20,6 +37,34 @@ definitions:
 info:
   contact: {}
 paths:
+  /interest/{slug}:
+    get:
+      description: get interest, based on provided slug
+      parameters:
+      - description: slug of specific interest
+        in: path
+        name: slug
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/interests.Interest'
+      summary: Get interest
+  /interests:
+    get:
+      description: get a JSON array of strings
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Get all interests
   /me/{id}:
     get:
       description: get a representation of me by mode id
