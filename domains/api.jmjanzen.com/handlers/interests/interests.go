@@ -33,7 +33,7 @@ func GetInterests(c *gin.Context) {
 	collection := db.GetCollection(client, "interests")
 	results, err := collection.Find(c, bson.M{})
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	var (
@@ -43,7 +43,7 @@ func GetInterests(c *gin.Context) {
 	defer results.Close(c)
 	for results.Next(c) {
 		if err = results.Decode(&interest); err != nil {
-			log.Fatal(err)
+			log.Println(err)
 		}
 
 		slugs = append(slugs, interest.Slug)
@@ -58,12 +58,18 @@ func GetInterest(c *gin.Context) {
 	defer cancel()
 
 	var interest Interest
-	if err := db.GetCollection(
-		client, "interests",
-	).FindOne(
+	collection := db.GetCollection(client, "interests")
+	result := collection.FindOne(
 		c, bson.M{"slug": c.Param("slug")},
-	).Decode(&interest); err != nil {
-		log.Fatal(err)
+	)
+
+	result.Decode(&interest)
+	if interest.Slug == "" {
+		c.JSON(
+			http.StatusNotFound,
+			gin.H{"error": "slug not found"},
+		)
+		return
 	}
 
 	c.JSON(http.StatusOK, interest)
