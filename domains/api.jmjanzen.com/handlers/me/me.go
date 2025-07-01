@@ -4,11 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"jm/internal/db"
 	"net/http"
 	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type Modes struct {
@@ -16,16 +18,16 @@ type Modes struct {
 }
 
 type Me struct {
-	ID   int         `json:"id"`
-	Mode string      `json:"mode"`
-	Data interface{} `json:"data"`
+	ID   int         `bson:"id" json:"id"`
+	Mode string      `bson:"mode" json:"mode"`
+	Data interface{} `bson:"data" json:"data"`
 }
 
 type NotFound struct {
-	Message string `json:"message"`
+	Message string `bson:"message" json:"message"`
 }
 type Error struct {
-	Message string `json:"message"`
+	Message string `bson:"message" json:"message"`
 }
 
 // GetMe godoc
@@ -42,12 +44,16 @@ type Error struct {
 // Get associated me from modes. If id is not provided, default to 1
 // FIXME Add flag to make dates human readable?
 func GetMe(c *gin.Context) {
+
+	client, cancel := db.Connect()
+	defer cancel()
+
 	var queryParam string
 	if queryParam = c.Param("id"); queryParam == "" {
 		queryParam = "1"
 	}
 
-	var id, err = strconv.Atoi(queryParam)
+	id, err := strconv.Atoi(queryParam)
 	if err != nil {
 		var errMessage = fmt.Sprintf("Couldn't parse id: %s", queryParam)
 		c.JSON(
@@ -57,17 +63,12 @@ func GetMe(c *gin.Context) {
 		return
 	}
 
-	for _, me := range modes {
-		if me.ID == id {
-			c.JSON(http.StatusOK, me)
-			return
-		}
-	}
+	var me Me
+	collection := db.GetCollection(client, "modes")
+	result := collection.FindOne(c, bson.M{"id": id})
+	result.Decode(&me)
 
-	c.JSON(
-		http.StatusNotFound,
-		NotFound{fmt.Sprint("id not found: ", queryParam)},
-	)
+	c.JSON(http.StatusOK, me)
 }
 
 var modes []Me
