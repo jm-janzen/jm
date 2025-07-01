@@ -35,10 +35,9 @@ type Interest struct {
 //
 //	GET /interest/:slug
 func GetInterests(c *gin.Context) {
-	client, cancel := db.Connect()
+	collection, cancel := db.GetCollection("interests")
 	defer cancel()
 
-	collection := db.GetCollection(client, "interests")
 	results, err := collection.Find(c, bson.M{})
 	if err != nil {
 		log.Println(err)
@@ -69,11 +68,10 @@ func GetInterests(c *gin.Context) {
 //	@Success		200		{object}	interests.Interest
 //	@Router			/interest/{slug} [get]
 func GetInterest(c *gin.Context) {
-	client, cancel := db.Connect()
+	var interest Interest
+	collection, cancel := db.GetCollection("interests")
 	defer cancel()
 
-	var interest Interest
-	collection := db.GetCollection(client, "interests")
 	result := collection.FindOne(
 		c, bson.M{"slug": c.Param("slug")},
 	)
