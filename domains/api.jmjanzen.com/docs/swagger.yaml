@@ -23,7 +23,9 @@ definitions:
     type: object
   me.Me:
     properties:
-      data: {}
+      data:
+        additionalProperties: {}
+        type: object
       id:
         type: integer
       mode:
@@ -37,7 +39,18 @@ definitions:
 info:
   contact: {}
 paths:
-  /interest/{slug}:
+  /interests:
+    get:
+      description: get a JSON array of strings
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Get all interests
+  /interests/{slug}:
     get:
       description: get interest, based on provided slug
       parameters:
@@ -54,17 +67,6 @@ paths:
           schema:
             $ref: '#/definitions/interests.Interest'
       summary: Get interest
-  /interests:
-    get:
-      description: get a JSON array of strings
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              type: string
-            type: array
-      summary: Get all interests
   /me/{id}:
     get:
       description: get a representation of me by mode id
