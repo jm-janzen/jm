@@ -6,9 +6,9 @@ services:
       target: build
     image: server/main:latest
 
-  mongodb:
+  modeeb:
     image: mongo
-    container_name: mongodb
+    container_name: modeeb
     ports:
       - 27017:27017
     volumes:
@@ -27,7 +27,7 @@ services:
   api.jmjanzen.com:
     image: server/main:latest
     depends_on:
-      - mongodb
+      - modeeb
       - server
     ports:
       - 8181:8181
