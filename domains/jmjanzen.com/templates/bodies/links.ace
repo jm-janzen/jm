@@ -12,7 +12,8 @@ div.content
   h2.content-subhead fediverse
   h3.content-subhead imagine social media; now imagine it's good. That's fedi.
 
-  blockquote. The <a href="https://en.wikipedia.org/wiki/Fediverse">fediverse</a> is
+  blockquote. The <a href="https://en.wikipedia.org/wiki/Fediverse">fediverse</a>,
+    or simply <code title="aterism symbol">⁂</code>, is
     a collection of social networking services that can communicate with each
     other using a common protocol. Users of different websites can send and
     receive status updates, multimedia files and other data across the
