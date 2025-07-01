@@ -10,7 +10,7 @@ services:
     image: mongo
     container_name: modeeb
     ports:
-      - 27017:27017
+      - ${MONGO_PORT}
     volumes:
       - ./assets/seed.js:/docker-entrypoint-initdb.d/seed.js:ro
     env_file: .env
