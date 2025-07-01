@@ -1,12 +1,9 @@
 package me
 
 import (
-	"encoding/json"
 	"fmt"
-	"io"
 	"jm/internal/db"
 	"net/http"
-	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -69,20 +66,4 @@ func GetMe(c *gin.Context) {
 	result.Decode(&me)
 
 	c.JSON(http.StatusOK, me)
-}
-
-var modes []Me
-
-func init() {
-	file, err := os.Open("./assets/modes.json")
-	if err != nil {
-		panic(err)
-	}
-
-	byteValue, err := io.ReadAll(file)
-	if err != nil {
-		panic(err)
-	}
-
-	json.Unmarshal(byteValue, &modes)
 }
