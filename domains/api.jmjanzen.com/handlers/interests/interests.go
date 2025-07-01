@@ -1,0 +1,70 @@
+package interests
+
+import (
+	"jm/internal/db"
+	"log"
+	"net/http"
+
+	"go.mongodb.org/mongo-driver/bson"
+
+	"github.com/gin-gonic/gin"
+)
+
+type Interest struct {
+	Slug           string   `bson:"slug" json:"slug"`
+	Name           string   `bson:"name" json:"name"`
+	Passion        float64  `bson:"passion" json:"passion"`
+	Summary        string   `bson:"summary" json:"summary"`
+	Aliases        []string `bson:"aliases" json:"aliases"`
+	ElaborationUrl *string  `bson:"elaborationUrl" json:"elaborationUrl,omitempty"`
+}
+
+// Returns JSON array of interests in slug form like
+//
+//	["reading", "coding", "etc"]
+//
+// which may then be used to look up more detail using
+//
+//	GET /interest/:slug
+func GetInterests(c *gin.Context) {
+	client, cancel := db.Connect()
+	defer cancel()
+
+	collection := db.GetCollection(client, "interests")
+	results, err := collection.Find(c, bson.M{})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var (
+		interest Interest
+		slugs    []string
+	)
+	defer results.Close(c)
+	for results.Next(c) {
+		if err = results.Decode(&interest); err != nil {
+			log.Fatal(err)
+		}
+
+		slugs = append(slugs, interest.Slug)
+	}
+
+	c.JSON(http.StatusOK, slugs)
+}
+
+// Returns JSON object of interest, based on provided slug
+func GetInterest(c *gin.Context) {
+	client, cancel := db.Connect()
+	defer cancel()
+
+	var interest Interest
+	if err := db.GetCollection(
+		client, "interests",
+	).FindOne(
+		c, bson.M{"slug": c.Param("slug")},
+	).Decode(&interest); err != nil {
+		log.Fatal(err)
+	}
+
+	c.JSON(http.StatusOK, interest)
+}
