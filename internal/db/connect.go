@@ -10,7 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func Connect() (*mongo.Client, context.CancelFunc) {
+func connect() (*mongo.Client, context.CancelFunc) {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 
 	opts := options.Client().ApplyURI(os.Getenv("MONGO_URI"))
@@ -26,6 +26,9 @@ func Connect() (*mongo.Client, context.CancelFunc) {
 	return client, cancel
 }
 
-func GetCollection(client *mongo.Client, collection string) *mongo.Collection {
-	return client.Database(os.Getenv("MONGO_DATABASE")).Collection(collection)
+func GetCollection(collectionName string) (*mongo.Collection, context.CancelFunc) {
+	client, cancel := connect()
+	collection := client.Database(os.Getenv("MONGO_DATABASE")).Collection(collectionName)
+
+	return collection, cancel
 }

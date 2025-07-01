@@ -42,9 +42,6 @@ type Error struct {
 // FIXME Add flag to make dates human readable?
 func GetMe(c *gin.Context) {
 
-	client, cancel := db.Connect()
-	defer cancel()
-
 	var queryParam string
 	if queryParam = c.Param("id"); queryParam == "" {
 		queryParam = "1"
@@ -61,7 +58,10 @@ func GetMe(c *gin.Context) {
 	}
 
 	var me Me
-	collection := db.GetCollection(client, "modes")
+
+	collection, cancel := db.GetCollection("modes")
+	defer cancel()
+
 	result := collection.FindOne(c, bson.M{"id": id})
 	result.Decode(&me)
 
