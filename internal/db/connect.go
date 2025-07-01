@@ -16,11 +16,11 @@ func connect() (*mongo.Client, context.CancelFunc) {
 	opts := options.Client().ApplyURI(os.Getenv("MONGO_URI"))
 	client, err := mongo.Connect(ctx, opts)
 	if err != nil {
-		log.Fatalf("connection error :%v", err)
+		log.Printf("connection error :%v", err)
 	}
 
 	if err = client.Ping(ctx, nil); err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	return client, cancel
