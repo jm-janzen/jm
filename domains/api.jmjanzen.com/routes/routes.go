@@ -5,6 +5,7 @@ import (
 	"os"
 
 	docs "jm/domains/api.jmjanzen.com/docs"
+	"jm/domains/api.jmjanzen.com/handlers/interests"
 	"jm/domains/api.jmjanzen.com/handlers/me"
 
 	"github.com/gin-gonic/gin"
@@ -24,6 +25,9 @@ func Launch() {
 	})
 	router.GET("/me", me.GetMe)
 	router.GET("/me/:id", me.GetMe)
+
+	router.GET("/interests", interests.GetInterests)
+	router.GET("/interest/:slug", interests.GetInterest)
 
 	docs.SwaggerInfo.BasePath = "/"
 	router.GET("/docs", func(ctx *gin.Context) {

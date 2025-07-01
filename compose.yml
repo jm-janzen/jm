@@ -6,6 +6,15 @@ services:
       target: build
     image: server/main:latest
 
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./assets/seed.js:/docker-entrypoint-initdb.d/seed.js:ro
+    env_file: .env
+
   jmjanzen.com:
     image: server/main:latest
     depends_on:
@@ -18,6 +27,7 @@ services:
   api.jmjanzen.com:
     image: server/main:latest
     depends_on:
+      - mongodb
       - server
     ports:
       - 8181:8181
