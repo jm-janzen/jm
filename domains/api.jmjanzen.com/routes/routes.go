@@ -19,8 +19,9 @@ func Launch() {
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"meUrl":      c.Request.Host + "/me{/id}",
-			"swaggerUrl": c.Request.Host + "/docs",
+			"meUrl":        c.Request.Host + "/me{/id}",
+			"interestsUrl": c.Request.Host + "/interests{/slug}",
+			"swaggerUrl":   c.Request.Host + "/docs",
 		})
 	})
 	router.GET("/me", me.GetMe)
