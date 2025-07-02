@@ -10,7 +10,7 @@ services:
     image: mongo
     container_name: modeeb
     ports:
-      - ${MONGO_PORT}
+      - ${MONGO_HOST}:27017
     volumes:
       - ./assets/seed.js:/docker-entrypoint-initdb.d/seed.js:ro
     env_file: .env
@@ -20,7 +20,7 @@ services:
     depends_on:
       - server
     ports:
-      - 8080:8080
+      - ${COM_HOST}:8080
     env_file: .env
     command: /bin/server jmjanzen.com
 
@@ -30,7 +30,7 @@ services:
       - modeeb
       - server
     ports:
-      - 8181:8181
+      - ${API_HOST}:8181
     env_file: .env
     command: /bin/server api.jmjanzen.com
 
@@ -40,7 +40,7 @@ services:
     depends_on:
       - server
     ports:
-      - 8282:8282
+      - ${CV_HOST}:8282
     env_file: .env
     command: /bin/server jmjanzen.cv
 
@@ -49,6 +49,6 @@ services:
     depends_on:
       - server
     ports:
-      - 8383:8383
+      - ${BLOG_HOST}:8383
     env_file: .env
     command: /bin/server blog.jmjanzen.com
