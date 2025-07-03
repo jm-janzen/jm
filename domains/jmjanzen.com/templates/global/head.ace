@@ -29,6 +29,7 @@ body
         // Populated by js below
 
 = javascript
+  const NAV_LINKS = ['about', 'network', 'links', 'blog']
   const current = {{.Slug}}
   const navMenu = document
     .getElementById('menu')
@@ -36,7 +37,7 @@ body
 
   // Build nav menu programmatically
 
-  for (const link of ['about', 'network', 'links', 'blog']) {
+  for (const link of NAV_LINKS) {
     const item = document.createElement('li')
     const classes = 'pure-menu-link' + (link === current ? ' nav-active' : '')
     item.className = 'pure-menu-item'
