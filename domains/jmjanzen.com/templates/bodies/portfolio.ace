@@ -20,7 +20,7 @@ div.content
     tbody
       tr
         td
-          label impl.
+          abbr title="implementation -- I just didn't want to mess with the spacing of these columns by typing the whole word out. Yeah, I'm bad like that."
         td
           span JavaScript/<abbr title="Yeah, I spell it 'NodeJS' instead of 'Node.js' -- I prefer the consistency with the various frameworks">NodeJS</abbr> + jest + eslint
       tr
@@ -57,14 +57,15 @@ div.content
 
   p. This webapp adds a "quack" to the README of a git repo once you provide it with the credentials to do so. That's right, it literally just adds the word "quack" to the README, and yes the name is somewhat tongue-in-cheek.
 
-  p. I made this after I became so impressed with how approachable <a href="https://nextjs.org/docs/app/getting-started/installation">NextJS</a> made working with ReactJS, that I wanted to try it out for myself. The result is kind of  hodgepodge of a couple different conceits available when using NextJS. Used the handy-dandy official <code>create-next-app</code> CLI to get quickly off the ground, then added my own business logic.
+  p. I made this after I became so impressed with how approachable <a href="https://nextjs.org/docs/app/getting-started/installation">NextJS</a> made working with ReactJS, that I wanted to try it out for myself. The result is kind of  hodgepodge of a couple different conceits available when using NextJS.
+
+  p. Used the handy-dandy official <code>create-next-app</code> CLI to get quickly off the ground, then added my own business logic.
 
   table.pure-table
     tbody
       tr
         td
-          abbr title="implementation -- I just didn't want to mess with the spacing of these columns by typing the whole word out. Yeah, I'm bad like that."
-            label impl.
+          label impl.
         td
           span TypeScript + NestJS + ReactJS
       tr
@@ -120,7 +121,7 @@ div.content
       td
         a href="https://github.com/jm-janzen/notes-cli" notes-cli
 
-  h2.content-subhead Personal Website
+  h2.content-subhead This Personal Website
 
   p. Let this take place of a <a href="https://indieweb.org/colophon">colophon</a>, at least until I get around to adding a legit one.
 
