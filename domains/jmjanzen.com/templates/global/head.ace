@@ -29,7 +29,7 @@ body
         // Populated by js below
 
 = javascript
-  const NAV_LINKS = ['about', 'network', 'links', 'projects', 'blog']
+  const NAV_LINKS = ['about', 'network', 'links', 'portfolio', 'blog']
   const current = {{.Slug}}
   const navMenu = document
     .getElementById('menu')
