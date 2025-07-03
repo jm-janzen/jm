@@ -1,0 +1,159 @@
+= include templates/global/head .
+
+div.main
+
+  div.header
+
+    h1 projects
+
+    h2 some fun things I've worked on
+
+div.content
+
+  h2.content-subhead README Improver 🦆
+
+  p. This webapp adds a "quack" to the README of a git repo once you provide it with the credentials to do so. That's right, it literally just adds the word "quack" to the README, and yes the name is somewhat tongue-in-cheek.
+
+  p. I made this after I became so impressed with how approachable <a href="https://nextjs.org/docs/app/getting-started/installation">NextJS</a> made working with ReactJS, that I wanted to try it out for myself. The result is kind of  hodgepodge of a couple different conceits available when using NextJS. Used the handy-dandy official <code>create-next-app</code> CLI to get quickly off the ground, then added my own business logic.
+
+  table.pure-table
+    tbody
+      tr
+        td
+          abbr title="implementation -- I just didn't want to mess with the spacing of these columns by typing the whole word out. Yeah, I'm bad like that."
+            label impl.
+        td
+          span TypeScript + NestJS + ReactJS
+      tr
+        td
+          label link
+        td
+          a href="https://duck.jmjanzen.com" duck.jmjanzen.com
+      tr
+        td
+          label repo
+        td
+          a href="https://github.com/jm-janzen/readme-improver/" readme-improver
+
+  h2.content-subhead Priority Queue
+
+  p. Why make your own priority queue when it's a solved problem? Why indeed! But also, have you considered, <em>why not</em>?
+
+  p. OK, so I actually just made this as part of a takehome exercise for a job (which resulted in an offer, so clearly it can't be that bad hehe). The actual implementation isn't really interesting. Most of the juice is in the <a href="https://github.com/jm-janzen/priority-queue/commits/main/">highly detailed commits</a>, as well as this <a href="https://github.com/jm-janzen/priority-queue/pull/4">imaginary PR review</a> to the original (broken) source code provided for the takehome exercise.
+
+  table.pure-table
+    tbody
+      tr
+        td
+          label impl.
+        td
+          span JavaScript/<abbr title="Yeah, I spell it 'NodeJS' instead of 'Node.js' -- I prefer the consistency with the various frameworks">NodeJS</abbr> + jest + eslint
+      tr
+        td
+          label repo
+        td
+          a href="https://github.com/jm-janzen/priority-queue" priority-queue
+          span &ensp;😪️
+
+  h2.content-subhead Log Creep 👺
+
+  p. So called because this program "creeps" a buffer backwards up a potentially huge file, from bottom to top, returning matching lines as it finds them in a streaming fashion.
+
+  p. This was actually <em>another takehome</em> from when I applied to <a href="https://cribl.io/">Cribl</a>. They were cool, and confirmed my intuitions, so that felt good. I did not however get an offer for that job, so I guess it could have been better.
+
+  p. For instance, a friend has since pointed out that <a href="https://man7.org/linux/man-pages/man2/mmap.2.html">mmap</a> (memory mapping) would be a good fit for this problem. Maybe I'll explore that one day to see what it gains us.
+
+  p. Working on this actually made me appreciate just how <a href="https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html">blazingly fast GNU grep is</a>, since that was the benchmark I compared this program against. For matches that aren't near the end of the file, grep outperforms this program <em>by a lot</em>.
+
+  table.pure-table
+    tbody
+      tr
+        td
+          label impl.
+        td
+          span NodeJS + jest
+      tr
+        td
+          label repo
+        td
+          a href="https://github.com/jm-janzen/log-creep" log-creep
+
+  h2.content-subhead Hackerman
+
+  p. I think there's some law that every programmer needs a "look busy" script that fills their terminal with all kinds of cool text. Well, this one is mine: I finally grew unsatisfied with piping <code>tree /</code> through increasingly tortuous encodings to make it look hackeresque.
+
+  p. In a nutshell, this is a CLI which pulls down publicly available open source code and streams it to your terminal in a way that looks like you're typing it. That's it. There are a bunch of arguments you can pass to tweak what you get and how it shows up, but its fundamental purpose is to amuse fellow programmers.
+
+  p. PS. "nullportal" is an org where I put a bunch of my ideas from college. My friends and I had the idea that it would be our hacker group or something, but then of course life and work happens, and we're all suddenly too busy... So it goes.
+
+  table.pure-table
+    tr
+      td
+        label impl.
+      td
+        span Python + argparse + GitHub API
+    tr
+      td
+        label repo
+      td
+        a href="https://github.com/nullportal/hackerman" nullportal/hackerman
+
+  h2.content-subhead Notes CLI
+
+  p. There comes a time in every programmer's career where they just get this <em>stirring</em> to roll their own note taking CLI, and this one is mine.
+
+  p. Continuing my explorations into Python, this one leverages a dispatch pattern to provide implementations of the various verb-noun commands in their own discrete little files. It's a simple CLI pattern that I often repeat.
+
+  p. Actually I've used this quite a lot, since I'm a big note taker. So whenever I'm digging into a truly new domain, I like busting this out because it lets me stay in the terminal. And there's just a certain <em>cool factor</em> involved in dogfooding your own software.
+
+  p. PS. For my next CLI I'd like to experiment with the Go library <a href="https://github.com/charmbracelet/bubbletea">BubbleTea</a> and related tools, and maybe even... (UNIX purists, cover your ears) A little <em>interactivity</em>? 🙊️
+
+  table.pure-table
+    tr
+      td
+        label impl.
+      td
+        span Python + argparse
+    tr
+      td
+        label repo
+      td
+        a href="https://github.com/jm-janzen/notes-cli" notes-cli
+
+  h2.content-subhead Personal Website
+
+  p. Let this take place of a <a href="https://indieweb.org/colophon">colophon</a>, at least until I get around to adding a legit one.
+
+  p. Originally started because I wanted to play with Go and couldn't at work--has since become an outlet and locus for many of my fascinations (usually software or infra related). Because I'm cheap, I'm pretty proud that all my hosting comes to under $2&nbsp;CAD/mo
+
+  p. Maybe I'll break out all the different permutations of <code>*.jmjanzen.*</code> into their own sections once I have enough to write about.
+
+  p. Probably not lol.
+
+  table.pure-table
+    tbody
+      tr
+        td
+          label impl.
+        td
+          span Go + Gin + MongoDB + Docker
+      tr
+        td
+          label website link
+        td
+          span You're here right now! Yay!
+      tr
+        td
+          label blog link
+        td
+          span See nav sidebar to your left
+      tr
+        td
+          label api link (Swagger)
+        td
+          a href="https://api.jmjanzen.com/doc" api.jmjanzen.com/docs
+      tr
+        td
+          label repo
+        td
+          a href="https://github.com/jm-janzen/jm/tree/main/domains/jmjanzen.com" github.com/jm-janzen/jm
