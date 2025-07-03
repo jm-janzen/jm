@@ -21,6 +21,7 @@ div.content
       tr
         td
           abbr title="implementation -- I just didn't want to mess with the spacing of these columns by typing the whole word out. Yeah, I'm bad like that."
+            label impl.
         td
           span JavaScript/<abbr title="Yeah, I spell it 'NodeJS' instead of 'Node.js' -- I prefer the consistency with the various frameworks">NodeJS</abbr> + jest + eslint
       tr
