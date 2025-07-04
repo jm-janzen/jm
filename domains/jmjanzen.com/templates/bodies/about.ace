@@ -88,8 +88,6 @@ div.content
       i Portrait image credit:  
       a.citation href="https://www.lizzography.com/" Liz Cooper Photography
 
-script src="/static/pure/js/ui.js" type="text/javascript"
-
 = javascript
 
     // returns { days: n, milis: n } since graduation date
