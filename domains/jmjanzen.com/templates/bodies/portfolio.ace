@@ -153,7 +153,7 @@ div.content
         td
           label api link (Swagger)
         td
-          a href="https://api.jmjanzen.com/doc" api.jmjanzen.com/docs
+          a href="https://api.jmjanzen.com/docs" api.jmjanzen.com/docs
       tr
         td
           label repo
