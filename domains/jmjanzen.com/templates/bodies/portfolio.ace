@@ -68,7 +68,7 @@ div.content
         td
           label impl.
         td
-          span TypeScript + NestJS + ReactJS
+          span TypeScript + NextJS + ReactJS
       tr
         td
           label link
