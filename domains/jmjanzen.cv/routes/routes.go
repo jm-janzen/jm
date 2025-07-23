@@ -12,7 +12,8 @@ func Launch() {
 	router := gin.Default()
 
 	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
-	router.LoadHTMLGlob("./assets/resume.html")
+	router.LoadHTMLGlob("./domains/jmjanzen.cv/templates/*")
+	router.Static("/static", "./domains/jmjanzen.cv/static")
 
 	router.GET("/", handlers.Default)
 
