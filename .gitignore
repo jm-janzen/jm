@@ -6,4 +6,4 @@ tmp
 assets
 domains/jmjanzen.cv/static/pdf/*-resume.pdf
 domains/jmjanzen.cv/static/txt/*-resume.txt
-domains/jmjanzen.cv/static/html/resume.html
+domains/jmjanzen.cv/static/html/*resume.html
