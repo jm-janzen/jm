@@ -10,6 +10,10 @@ div.main
 
 div.content
 
+  p. Below you'll find a curated list of projects I've worked on that I'm free to share. If you just want to see a raw stream of things I'm working on, most of my public work is visible on <a href="https://github.com/jm-janzen/">my GitHub</a>.
+
+  p. If instead you want to see a more formal and very tightly curated list of what I've been up to (professionally), then <a href="https://jmjanzen.cv">my online CV</a> is the place for that.
+
   h2.content-subhead Priority Queue
 
   p. Why make your own priority queue when it's a solved problem? Why indeed! But also, have you considered, <em>why not</em>?
@@ -29,7 +33,6 @@ div.content
           label repo
         td
           a href="https://github.com/jm-janzen/priority-queue" priority-queue
-          span &ensp;😪️
 
   h2.content-subhead Log Creep 👺
 
@@ -58,7 +61,7 @@ div.content
 
   p. This webapp adds a "quack" to the README of a git repo once you provide it with the credentials to do so. That's right, it literally just adds the word "quack" to the README, and yes the name is somewhat tongue-in-cheek.
 
-  p. I made this after I became so impressed with how approachable <a href="https://nextjs.org/docs/app/getting-started/installation">NextJS</a> made working with ReactJS, that I wanted to try it out for myself. The result is kind of  hodgepodge of a couple different conceits available when using NextJS.
+  p. I made this after I became so impressed with how approachable <a href="https://nextjs.org/docs/app/getting-started/installation">NextJS</a> made working with ReactJS, that I wanted to try it out for myself. The result is kind of a hodgepodge of a couple different conceits available when using NextJS.
 
   p. Used the handy-dandy official <code>create-next-app</code> CLI to get quickly off the ground, then added my own business logic.
 
