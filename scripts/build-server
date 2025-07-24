@@ -8,7 +8,7 @@ then
     [[ -z "$answer" || "$answer" == "n" ]] && exit 1
 fi
 
-docker save jm-server:latest | gzip | ssh $REMOTE_HOST docker load
+docker save $IMAGE_NAME:latest | gzip | ssh $REMOTE_HOST docker load
 
 ssh -t $REMOTE_HOST <<MEOW
 cd $REMOTE_DIR
