@@ -1,4 +1,6 @@
 tmp/*
 config
+assets
+scripts
 .git
 .env*
