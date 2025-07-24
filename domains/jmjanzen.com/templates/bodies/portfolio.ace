@@ -10,9 +10,10 @@ div.main
 
 div.content
 
-  p. Below you'll find a curated list of projects I've worked on that I'm free to share. If you just want to see a raw stream of things I'm working on, most of my public work is visible on <a href="https://github.com/jm-janzen/">my GitHub</a>.
+  aside
+    p. Below you'll find a curated list of projects I've worked on that I'm free to share. If you just want to see a raw stream of things I'm working on, most of my public work is visible on <a href="https://github.com/jm-janzen/">my GitHub</a>.
 
-  p. If instead you want to see a more formal and very tightly curated list of what I've been up to (professionally), then <a href="https://jmjanzen.cv">my online CV</a> is the place for that.
+    p. If instead you want to see a more formal and very tightly curated list of what I've been up to (professionally), then <a href="https://jmjanzen.cv">my online CV</a> is the place for that.
 
   h2.content-subhead Priority Queue
 
