@@ -111,6 +111,17 @@ em {
   background-color: var(--ghostly);
 }
 
+aside {
+  background-color: var(--hinting);
+  border-radius: 3px;
+  color: #fff;
+  padding: .3em 1em;
+  margin-top: 1em;
+}
+aside p {
+  color: var(--strong);
+}
+
 button#mode-toggle {
     border: none;
     border-radius: 50%;
