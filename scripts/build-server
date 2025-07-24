@@ -9,7 +9,7 @@ then
 fi
 
 docker build --target=build -t jm-server .
-docker save -o jm-server jm-server:latest
+docker save -o /tmp/jm-server jm-server:latest
 
 scp /tmp/jm-server $REMOTE_HOST:/tmp/jm-server
 
