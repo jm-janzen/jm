@@ -19,7 +19,7 @@ If you just want to run everything, say like on a VPS, run the following command
 
 ```shell
 cp .env.example .env
-cp .config/db/seed.example.js assets/
+cp config/db/seed.example.js assets/
 
 docker compose up
 ```
