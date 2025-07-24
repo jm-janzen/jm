@@ -1,0 +1,17 @@
+#!/usr/bin/env -S bash
+
+if [[ $# -lt 1 ]]
+then
+    echo 'Usage: ./scripts/update-modeed <mongodb-seed-file>'
+    exit 1
+fi
+
+source ./.env
+
+rsync -v "$1" ${REMOTE_HOST}:${REMOTE_DIR}/assets/
+
+ssh -t ${REMOTE_HOST} <<MODEEB
+cd ${REMOTE_DIR}
+docker compose down modeeb
+docker compose up -d modeeb
+MODEEB

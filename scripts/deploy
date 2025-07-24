@@ -1,0 +1,13 @@
+#!/usr/bin/env -S bash -e
+
+echo "*** Updating jmjanzen.cv assets..."
+./scripts/update-cv
+
+echo "*** Updating MongoDB..."
+./scripts/update-modeeb ./assets/seed.js
+
+echo "*** Building server image..."
+./scripts/build-server || exit 0
+
+echo "*** Updating remote..."
+./scripts/update-remote

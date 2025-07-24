@@ -1,0 +1,21 @@
+#!/usr/bin/env -S bash
+
+source ./.env
+
+if [ "$(git status --porcelain)" ]
+then
+    read -n 1 -p "Uncommitted changes -- continue anyway (y/N)? " answer
+    [[ -z "$answer" || "$answer" == "n" ]] && exit 1
+fi
+
+docker build --target=build -t jm-server .
+docker save -o jm-server jm-server:latest
+
+scp /tmp/jm-server $REMOTE_HOST:/tmp/jm-server
+
+ssh -t $REMOTE_HOST <<MEOW
+cd $REMOTE_DIR
+docker load -i /tmp/jm-server
+docker compose up -d
+MEOW
+
