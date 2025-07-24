@@ -18,10 +18,11 @@ func Launch() {
 	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 
 	router.GET("/", func(c *gin.Context) {
+		url := c.Request.URL.Scheme + c.Request.Host
 		c.JSON(http.StatusOK, gin.H{
-			"meUrl":        c.Request.Host + "/me{/id}",
-			"interestsUrl": c.Request.Host + "/interests{/slug}",
-			"swaggerUrl":   c.Request.Host + "/docs",
+			"meUrl":        url + "/me{/id}",
+			"interestsUrl": url + "/interests{/slug}",
+			"swaggerUrl":   url + "/docs",
 		})
 	})
 	router.GET("/me", me.GetMe)
