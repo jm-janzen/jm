@@ -1,0 +1,11 @@
+#!/usr/bin/env -S bash
+
+source ./.env
+
+ssh $REMOTE_HOST git -C $REMOTE_DIR pull origin main
+
+ssh $REMOTE_HOST <<DEPLOY
+cd $REMOTE_DIR
+docker compose up -d
+DEPLOY
+

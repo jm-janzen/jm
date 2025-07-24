@@ -1,0 +1,16 @@
+#!/usr/bin/env -S bash
+
+source ./.env
+
+mkdir -p ./domains/jmjanzen.cv/static/{pdf,html,txt}
+
+pdf2htmlEX ./assets/resume.pdf ./assets/resume.html \
+    --zoom 1.5 \
+    --optimize-text=1 \
+    --process-outline=0
+
+cp -v ./assets/resume.pdf  ./domains/jmjanzen.cv/static/pdf/jmjanzen-resume.pdf
+cp -v ./assets/resume.html ./domains/jmjanzen.cv/static/html/jmjanzen-resume.html
+cp -v ./assets/resume.txt  ./domains/jmjanzen.cv/static/txt/jmjanzen-resume.txt
+
+rsync -va ./domains/jmjanzen.cv/static/{pdf,txt,html} $REMOTE_HOST:$REMOTE_DIR/domains/jmjanzen.cv/static
