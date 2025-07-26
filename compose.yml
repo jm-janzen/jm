@@ -11,7 +11,7 @@ services:
     container_name: modeeb
     volumes:
       - ./assets/seed.js:/docker-entrypoint-initdb.d/seed.js:ro
-    env_file: .env
+    env_file: ${ENV_FILE}
 
   jmjanzen.com:
     image: ${IMAGE_NAME}
@@ -19,7 +19,7 @@ services:
       - server
     ports:
       - ${COM_HOST}:8080
-    env_file: .env
+    env_file: ${ENV_FILE}
     command: /bin/server jmjanzen.com
 
   api.jmjanzen.com:
@@ -29,7 +29,7 @@ services:
       - server
     ports:
       - ${API_HOST}:8181
-    env_file: .env
+    env_file: ${ENV_FILE}
     command: /bin/server api.jmjanzen.com
 
 
@@ -39,7 +39,7 @@ services:
       - server
     ports:
       - ${CV_HOST}:8282
-    env_file: .env
+    env_file: ${ENV_FILE}
     command: /bin/server jmjanzen.cv
 
   blog.jmjanzen.com:
@@ -48,5 +48,5 @@ services:
       - server
     ports:
       - ${BLOG_HOST}:8383
-    env_file: .env
+    env_file: ${ENV_FILE}
     command: /bin/server blog.jmjanzen.com
