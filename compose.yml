@@ -18,7 +18,7 @@ services:
     depends_on:
       - server
     ports:
-      - ${COM_HOST}:8080
+      - 127.0.0.1:${COM_PORT}:${COM_PORT}
     env_file: ${ENV_FILE}
     command: /bin/server jmjanzen.com
 
@@ -28,7 +28,7 @@ services:
       - modeeb
       - server
     ports:
-      - ${API_HOST}:8181
+      - 127.0.0.1:${API_PORT}:${API_PORT}
     env_file: ${ENV_FILE}
     command: /bin/server api.jmjanzen.com
 
@@ -38,7 +38,7 @@ services:
     depends_on:
       - server
     ports:
-      - ${CV_HOST}:8282
+      - 127.0.0.1:${CV_PORT}:${CV_PORT}
     env_file: ${ENV_FILE}
     command: /bin/server jmjanzen.cv
 
@@ -47,6 +47,6 @@ services:
     depends_on:
       - server
     ports:
-      - ${BLOG_HOST}:8383
+      - 127.0.0.1:${BLOG_PORT}:${BLOG_PORT}
     env_file: ${ENV_FILE}
     command: /bin/server blog.jmjanzen.com

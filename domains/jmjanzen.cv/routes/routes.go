@@ -17,5 +17,5 @@ func Launch() {
 
 	router.GET("/", handlers.Default)
 
-	router.Run(os.Getenv("CV_HOST"))
+	router.Run(":" + os.Getenv("CV_PORT"))
 }
