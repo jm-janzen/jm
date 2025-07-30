@@ -10,7 +10,7 @@ services:
     image: mongo
     container_name: modeeb
     volumes:
-      - ./assets/seed.js:/docker-entrypoint-initdb.d/seed.js:ro
+      - ${MONGO_VOLUME}:/docker-entrypoint-initdb.d/seed.js:ro
     env_file: ${ENV_FILE}
 
   jmjanzen.com:
