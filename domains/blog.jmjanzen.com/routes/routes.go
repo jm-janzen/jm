@@ -18,5 +18,5 @@ func Launch() {
 	router.GET("/", handlers.Default)
 	router.GET("/:slug", handlers.HandleBlog)
 
-	router.Run(os.Getenv("BLOG_HOST"))
+	router.Run(":" + os.Getenv("BLOG_PORT"))
 }

@@ -37,5 +37,5 @@ func Launch() {
 		c.Redirect(http.StatusPermanentRedirect, "https://blog.jmjanzen.com")
 	})
 
-	router.Run(os.Getenv("COM_HOST"))
+	router.Run(":" + os.Getenv("COM_PORT"))
 }

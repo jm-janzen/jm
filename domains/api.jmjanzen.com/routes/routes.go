@@ -37,5 +37,5 @@ func Launch() {
 	})
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
-	router.Run(os.Getenv("API_HOST"))
+	router.Run(":" + os.Getenv("API_PORT"))
 }
