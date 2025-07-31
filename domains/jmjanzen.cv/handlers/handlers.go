@@ -11,7 +11,7 @@ import (
 
 func Default(c *gin.Context) {
 	contents, err := os.ReadFile(
-        "./domains/jmjanzen.cv/static/html/resume.html",
+        "./domains/jmjanzen.cv/static/html/jmjanzen-resume.html",
     )
 	if err != nil {
 		log.Println("Error:", err)
