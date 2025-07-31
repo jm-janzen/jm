@@ -2,10 +2,6 @@
 
 source ./.env
 
-ssh $REMOTE_HOST git -C $REMOTE_DIR pull origin main
+docker save $IMAGE_NAME:latest | gzip | ssh $REMOTE_HOST docker load
 
-ssh $REMOTE_HOST <<DEPLOY
-cd $REMOTE_DIR
-docker compose up -d
-DEPLOY
-
+DOCKER_HOST="ssh://${REMOTE_HOST}" docker compose --env-file .env up -d
