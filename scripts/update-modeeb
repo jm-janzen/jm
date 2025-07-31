@@ -10,5 +10,5 @@ source "${ENV_FILE:-.env}"
 
 rsync -v "$1" ${REMOTE_HOST}:${REMOTE_DIR}/assets/
 
-DOCKER_HOST=$DOCKER_HOST docker compose --env-file ${ENV_FILE} down -v modeeb
-DOCKER_HOST=$DOCKER_HOST docker compose --env-file ${ENV_FILE} up -d modeeb
+DOCKER_HOST="ssh://${REMOTE_HOST}" docker compose --env-file ${ENV_FILE} down -v modeeb
+DOCKER_HOST="ssh://${REMOTE_HOST}" docker compose --env-file ${ENV_FILE} up -d modeeb
