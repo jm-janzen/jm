@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-source ./.env
+source "${ENV_FILE:-.env}"
 
 rsync -v "$1" ${REMOTE_HOST}:${REMOTE_DIR}/assets/
 
