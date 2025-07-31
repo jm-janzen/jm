@@ -1,7 +1,7 @@
 #!/usr/bin/env -S bash
 
-source ./.env
+source "${ENV_FILE:-.env}"
 
 docker save $IMAGE_NAME:latest | gzip | ssh $REMOTE_HOST docker load
 
-DOCKER_HOST="ssh://${REMOTE_HOST}" docker compose --env-file .env up -d
+DOCKER_HOST="ssh://${REMOTE_HOST}" docker compose --env-file ${ENV_FILE} up -d

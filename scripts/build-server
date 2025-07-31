@@ -1,6 +1,6 @@
 #!/usr/bin/env -S bash
 
-source ./.env
+source "${ENV_FILE:-.env}"
 
 if [ "$(git status --porcelain)" ]
 then

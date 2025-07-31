@@ -2,7 +2,9 @@
 *.sw[a-p]
 tmp
 
-.env
+.env*
+!.env.example
+
 assets
 domains/jmjanzen.cv/static/pdf/*-resume.pdf
 domains/jmjanzen.cv/static/txt/*-resume.txt
