@@ -7,6 +7,7 @@ import (
 	docs "jm/domains/api.jmjanzen.com/docs"
 	"jm/domains/api.jmjanzen.com/handlers/interests"
 	"jm/domains/api.jmjanzen.com/handlers/me"
+	"jm/domains/api.jmjanzen.com/handlers/tils"
 
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
@@ -30,6 +31,9 @@ func Launch() {
 
 	router.GET("/interests", interests.GetInterests)
 	router.GET("/interests/:slug", interests.GetInterest)
+
+	router.GET("/tils", tils.GetTils)
+	router.GET("/tils/:slug", tils.GetTil)
 
 	docs.SwaggerInfo.BasePath = "/"
 	router.GET("/docs", func(ctx *gin.Context) {
