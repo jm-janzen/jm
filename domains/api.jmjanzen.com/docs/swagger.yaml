@@ -36,6 +36,15 @@ definitions:
       message:
         type: string
     type: object
+  tils.Til:
+    properties:
+      name:
+        type: string
+      slug:
+        type: string
+      summary:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
@@ -91,4 +100,32 @@ paths:
           schema:
             $ref: '#/definitions/me.Error'
       summary: Get me
+  /tils:
+    get:
+      description: get a JSON array of strings
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Get all tils
+  /tils/{slug}:
+    get:
+      description: get til, based on provided slug
+      parameters:
+      - description: slug of specific til
+        in: path
+        name: slug
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/tils.Til'
+      summary: Get til
 swagger: "2.0"
