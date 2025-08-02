@@ -33,7 +33,7 @@ type Interest struct {
 //
 // which may then be used to look up more detail using
 //
-//	GET /interest/:slug
+//	GET /interests/:slug
 func GetInterests(c *gin.Context) {
 	collection, cancel := db.GetCollection("interests")
 	defer cancel()

@@ -83,6 +83,49 @@
                     }
                 }
             }
+        },
+        "/tils": {
+            "get": {
+                "description": "get a JSON array of strings",
+                "summary": "Get all tils",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/tils/{slug}": {
+            "get": {
+                "description": "get til, based on provided slug",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get til",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "slug of specific til",
+                        "name": "slug",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/tils.Til"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -139,6 +182,20 @@
             "type": "object",
             "properties": {
                 "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "tils.Til": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "summary": {
                     "type": "string"
                 }
             }
