@@ -29,7 +29,7 @@ func Launch() {
 	router.GET("/me/:id", me.GetMe)
 
 	router.GET("/interests", interests.GetInterests)
-	router.GET("/interest/:slug", interests.GetInterest)
+	router.GET("/interests/:slug", interests.GetInterest)
 
 	docs.SwaggerInfo.BasePath = "/"
 	router.GET("/docs", func(ctx *gin.Context) {
