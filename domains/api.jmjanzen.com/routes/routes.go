@@ -23,6 +23,7 @@ func Launch() {
 		c.JSON(http.StatusOK, gin.H{
 			"meUrl":        url + "/me{/id}",
 			"interestsUrl": url + "/interests{/slug}",
+			"tilsUrl":      url + "/tilsUrl{/slug}",
 			"swaggerUrl":   url + "/docs",
 		})
 	})
