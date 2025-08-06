@@ -6,7 +6,7 @@ import (
 
 	docs "jm/domains/api.jmjanzen.com/docs"
 	"jm/domains/api.jmjanzen.com/handlers/interests"
-	"jm/domains/api.jmjanzen.com/handlers/me"
+	"jm/domains/api.jmjanzen.com/handlers/modes"
 	"jm/domains/api.jmjanzen.com/handlers/tils"
 
 	"github.com/gin-gonic/gin"
@@ -22,13 +22,16 @@ func Launch() {
 		url := c.Request.URL.Scheme + c.Request.Host
 		c.JSON(http.StatusOK, gin.H{
 			"meUrl":        url + "/me{/id}",
+			"modesUrl":     url + "/modes{/id}",
 			"interestsUrl": url + "/interests{/slug}",
 			"tilsUrl":      url + "/tilsUrl{/slug}",
 			"swaggerUrl":   url + "/docs",
 		})
 	})
-	router.GET("/me", me.GetMe)
-	router.GET("/me/:id", me.GetMe)
+	router.GET("/me", modes.GetModes)
+	router.GET("/me/:id", modes.GetModes)
+	router.GET("/modes", modes.GetModes)
+	router.GET("/modes/:id", modes.GetModes)
 
 	router.GET("/interests", interests.GetInterests)
 	router.GET("/interests/:slug", interests.GetInterest)

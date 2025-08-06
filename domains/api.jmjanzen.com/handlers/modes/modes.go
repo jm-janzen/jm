@@ -1,4 +1,4 @@
-package me
+package modes
 
 import (
 	"fmt"
@@ -11,10 +11,10 @@ import (
 )
 
 type Modes struct {
-	Modes []Me `json:"modes"`
+	Modes []Modes `json:"modes"`
 }
 
-type Me struct {
+type Mode struct {
 	ID   int            `bson:"id" json:"id"`
 	Mode string         `bson:"mode" json:"mode"`
 	Data map[string]any `bson:"data" json:"data"`
@@ -27,20 +27,20 @@ type Error struct {
 	Message string `bson:"message" json:"message"`
 }
 
-// GetMe godoc
+// GetModes godoc
 //
-//	@Summary		Get me
-//	@Description	get a representation of me by mode id
+//	@Summary		Get my modes
+//	@Description	get a representation of my mode by mode id
 //	@Produce		json
 //	@Param			id	path		int	false	"which mode"
-//	@Success		200	{object}	me.Me
-//	@Failure		404	{object}	me.NotFound
-//	@Failure		500	{object}	me.Error
-//	@Router			/me/{id} [get]
+//	@Success		200	{object}	modes.Mode
+//	@Failure		404	{object}	modes.NotFound
+//	@Failure		500	{object}	modes.Error
+//	@Router			/modes/{id} [get]
 //
-// Get associated me from modes. If id is not provided, default to 1
-// FIXME Add flag to make dates human readable?
-func GetMe(c *gin.Context) {
+// Get associated modes associated with given id.
+// If id is not provided, default to 1
+func GetModes(c *gin.Context) {
 
 	var queryParam string
 	if queryParam = c.Param("id"); queryParam == "" {
@@ -57,13 +57,13 @@ func GetMe(c *gin.Context) {
 		return
 	}
 
-	var me Me
+	var mode Mode
 
 	collection, cancel := db.GetCollection("modes")
 	defer cancel()
 
 	result := collection.FindOne(c, bson.M{"id": id})
-	result.Decode(&me)
+	result.Decode(&mode)
 
-	c.JSON(http.StatusOK, me)
+	c.JSON(http.StatusOK, mode)
 }
