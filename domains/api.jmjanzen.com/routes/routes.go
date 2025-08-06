@@ -3,6 +3,7 @@ package routes
 import (
 	"os"
 
+	_ "jm/domains/api.jmjanzen.com/docs"
 	"jm/domains/api.jmjanzen.com/handlers/interests"
 	"jm/domains/api.jmjanzen.com/handlers/modes"
 	"jm/domains/api.jmjanzen.com/handlers/tils"
