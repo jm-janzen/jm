@@ -1,10 +1,8 @@
 package routes
 
 import (
-	"net/http"
 	"os"
 
-	docs "jm/domains/api.jmjanzen.com/docs"
 	"jm/domains/api.jmjanzen.com/handlers/interests"
 	"jm/domains/api.jmjanzen.com/handlers/modes"
 	"jm/domains/api.jmjanzen.com/handlers/tils"
@@ -18,16 +16,8 @@ func Launch() {
 	router := gin.Default()
 	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 
-	router.GET("/", func(c *gin.Context) {
-		url := c.Request.URL.Scheme + c.Request.Host
-		c.JSON(http.StatusOK, gin.H{
-			"meUrl":        url + "/me{/id}",
-			"modesUrl":     url + "/modes{/id}",
-			"interestsUrl": url + "/interests{/slug}",
-			"tilsUrl":      url + "/tilsUrl{/slug}",
-			"swaggerUrl":   url + "/docs",
-		})
-	})
+	router.GET("/", ginSwagger.WrapHandler(swaggerfiles.Handler))
+
 	router.GET("/me", modes.GetModes)
 	router.GET("/me/:id", modes.GetModes)
 	router.GET("/modes", modes.GetModes)
@@ -38,12 +28,6 @@ func Launch() {
 
 	router.GET("/tils", tils.GetTils)
 	router.GET("/tils/:slug", tils.GetTil)
-
-	docs.SwaggerInfo.BasePath = "/"
-	router.GET("/docs", func(ctx *gin.Context) {
-		ctx.Redirect(http.StatusPermanentRedirect, "/swagger/index.html")
-	})
-	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	router.Run(":" + os.Getenv("API_PORT"))
 }
