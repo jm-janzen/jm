@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"net/http"
 	"os"
 
 	_ "jm/domains/api.jmjanzen.com/docs"
@@ -17,6 +18,12 @@ func Launch() {
 	router := gin.Default()
 	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 
+	router.GET("/", func(c *gin.Context) {
+		c.Redirect(http.StatusPermanentRedirect, "docs/index.html")
+	})
+	router.GET("/docs", func(c *gin.Context) {
+		c.Redirect(http.StatusPermanentRedirect, "docs/index.html")
+	})
 	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	router.GET("/me", modes.GetModes)
