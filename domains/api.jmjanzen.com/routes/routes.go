@@ -16,7 +16,7 @@ func Launch() {
 	router := gin.Default()
 	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 
-	router.GET("/", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	router.GET("/me", modes.GetModes)
 	router.GET("/me/:id", modes.GetModes)
