@@ -16,12 +16,12 @@ definitions:
       summary:
         type: string
     type: object
-  me.Error:
+  modes.Error:
     properties:
       message:
         type: string
     type: object
-  me.Me:
+  modes.Mode:
     properties:
       data:
         additionalProperties: {}
@@ -31,7 +31,7 @@ definitions:
       mode:
         type: string
     type: object
-  me.NotFound:
+  modes.NotFound:
     properties:
       message:
         type: string
@@ -76,9 +76,9 @@ paths:
           schema:
             $ref: '#/definitions/interests.Interest'
       summary: Get interest
-  /me/{id}:
+  /modes/{id}:
     get:
-      description: get a representation of me by mode id
+      description: get a representation of my mode by mode id
       parameters:
       - description: which mode
         in: path
@@ -90,16 +90,16 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/me.Me'
+            $ref: '#/definitions/modes.Mode'
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/me.NotFound'
+            $ref: '#/definitions/modes.NotFound'
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/me.Error'
-      summary: Get me
+            $ref: '#/definitions/modes.Error'
+      summary: Get my modes
   /tils:
     get:
       description: get a JSON array of strings

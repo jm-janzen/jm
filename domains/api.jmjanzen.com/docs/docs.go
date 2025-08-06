@@ -58,13 +58,13 @@ const docTemplate = `{
                 }
             }
         },
-        "/me/{id}": {
+        "/modes/{id}": {
             "get": {
-                "description": "get a representation of me by mode id",
+                "description": "get a representation of my mode by mode id",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Get me",
+                "summary": "Get my modes",
                 "parameters": [
                     {
                         "type": "integer",
@@ -77,19 +77,19 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/me.Me"
+                            "$ref": "#/definitions/modes.Mode"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/me.NotFound"
+                            "$ref": "#/definitions/modes.NotFound"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/me.Error"
+                            "$ref": "#/definitions/modes.Error"
                         }
                     }
                 }
@@ -166,7 +166,7 @@ const docTemplate = `{
                 }
             }
         },
-        "me.Error": {
+        "modes.Error": {
             "type": "object",
             "properties": {
                 "message": {
@@ -174,7 +174,7 @@ const docTemplate = `{
                 }
             }
         },
-        "me.Me": {
+        "modes.Mode": {
             "type": "object",
             "properties": {
                 "data": {
@@ -189,7 +189,7 @@ const docTemplate = `{
                 }
             }
         },
-        "me.NotFound": {
+        "modes.NotFound": {
             "type": "object",
             "properties": {
                 "message": {
