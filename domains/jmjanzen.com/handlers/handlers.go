@@ -18,29 +18,19 @@ type pageData struct {
 const templatesPath = "templates/bodies/"
 
 func fetchTemplate(slug string) (*template.Template, error) {
-	tpl, err := ace.Load(templatesPath+slug, "", nil)
-	if err != nil {
-
-		// If 404 fails for some reason, just quit
-		if tpl, err = ace.Load(templatesPath+"404", "", nil); err != nil {
-			log.Println("Error:", err.Error())
-			return nil, err
-		}
-	}
-
-	return tpl, err
+	return ace.Load(templatesPath+slug, "", nil)
 }
 
 func RenderAce(c *gin.Context, slug string) {
 
 	tpl, err := fetchTemplate(slug)
 	if err != nil {
-		tpl, err = fetchTemplate("404")
-		if err != nil {
-			log.Println("Error:", err.Error())
+		c.Status(http.StatusNotFound)
+
+		if tpl, err = fetchTemplate("404"); err != nil {
+			log.Println("Error fetching 404 template:", err.Error())
 			return
 		}
-		return
 	}
 
 	data := pageData{

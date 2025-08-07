@@ -57,12 +57,19 @@ func GetModes(c *gin.Context) {
 		return
 	}
 
-	var mode Mode
-
 	collection, cancel := db.GetCollection("modes")
 	defer cancel()
 
 	result := collection.FindOne(c, bson.M{"id": id})
+	if result.Err() != nil {
+		c.JSON(
+			http.StatusNotFound,
+			NotFound{fmt.Sprint("id not found: ", queryParam)},
+		)
+		return
+	}
+
+	var mode Mode
 	result.Decode(&mode)
 
 	c.JSON(http.StatusOK, mode)
