@@ -27,9 +27,8 @@ func RenderAce(c *gin.Context, slug string) {
 	if err != nil {
 		c.Status(http.StatusNotFound)
 
-		tpl, err = fetchTemplate("404")
-		if err != nil {
-			log.Println("Error:", err.Error())
+		if tpl, err = fetchTemplate("404"); err != nil {
+			log.Println("Error fetching 404 template:", err.Error())
 			return
 		}
 	}
