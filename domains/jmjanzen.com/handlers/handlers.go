@@ -40,7 +40,6 @@ func RenderAce(c *gin.Context, slug string) {
 			log.Println("Error:", err.Error())
 			return
 		}
-		return
 	}
 
 	data := pageData{
