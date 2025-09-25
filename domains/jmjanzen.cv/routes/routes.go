@@ -14,6 +14,7 @@ func Launch() {
 	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 	router.LoadHTMLGlob("./domains/jmjanzen.cv/templates/*")
 	router.Static("/static", "./domains/jmjanzen.cv/static")
+	router.StaticFile("/favicon.ico", "./domains/jmjanzen.cv/static/img/favicon.ico")
 
 	router.GET("/", handlers.Default)
 
