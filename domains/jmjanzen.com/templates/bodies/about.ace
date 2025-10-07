@@ -21,9 +21,15 @@ div.content
     of opinion, and more a set of best practices. (I'm all for creativity in personal
     projects but for work stuff I prefer boring and battle-tested.)
 
-  p. Lately I've been getting more and more into the <em>infra</em> side of backend
-    engineering. You know how when you brick your machine and wish you could just roll back
-    the change, or start fresh with all your changes up until that point?
+  p. Lately I've been getting into the <em>infra</em> side of backend
+    engineering. You know how when you brick your machine and wish you could just
+    roll back the change, or start fresh with all your changes up until that
+    point? That's essentially what declarative infrastructure is. It's a far cry
+    from how we used to do things: manually <code>ssh</code>ing into specific
+    machine and applying patches, etc.
+
+  p. I do love the manual approach, but again--for work stuff--I prefer the increased
+    reliability of the <abbr title="High Availability">HA</abbr>/distributed approach.
 
   h2.content-subhead rip & tear & learn
 
