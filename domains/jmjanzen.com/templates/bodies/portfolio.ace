@@ -75,11 +75,6 @@ div.content
           span TypeScript + NextJS + ReactJS
       tr
         td
-          label link
-        td
-          a href="https://duck.jmjanzen.com" duck.jmjanzen.com
-      tr
-        td
           label repo
         td
           a href="https://github.com/jm-janzen/readme-improver/" readme-improver
