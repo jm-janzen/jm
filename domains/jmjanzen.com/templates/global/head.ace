@@ -22,7 +22,7 @@ body
     nav#menu
       div.pure-menu
         div.pure-menu-heading
-          a href="/home" JM Janzen
+          a href="/home" JM's /home
           span#mode-controls
             button#mode-toggle title="Toggle light/dark mode" 🌚️
 
@@ -42,7 +42,7 @@ body
     const item = document.createElement('li')
     const classes = 'pure-menu-link' + (link === current ? ' nav-active' : '')
     item.className = 'pure-menu-item'
-    item.innerHTML = `<a class="${classes}" href="/${link}">${link}</a>`
+    item.innerHTML = `<a class="${classes}" href="/${link}">/${link}</a>`
     navMenu.appendChild(item)
   }
 
