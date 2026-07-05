@@ -27,7 +27,18 @@ body
             button#mode-toggle title="Toggle light/dark mode" 🌚️
 
         ul.pure-menu-list
-        // Populated by js below
+          // fallbacks if no js (trying to be good netizen here)
+          noscript
+            li.pure-menu-item
+              a.pure-menu-link href="/about" /about
+            li.pure-menu-item
+              a.pure-menu-link href="/network" /network
+            li.pure-menu-item
+              a.pure-menu-link href="/links" /links
+            li.pure-menu-item
+              a.pure-menu-link href="/portfolio" /portfolio
+            li.pure-menu-item
+              a.pure-menu-link href="/blog" /blog
 
 = javascript
   const NAV_LINKS = ['about', 'network', 'links', 'portfolio', 'blog']
