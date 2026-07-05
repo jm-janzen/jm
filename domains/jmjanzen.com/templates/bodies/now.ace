@@ -1,0 +1,31 @@
+= include templates/global/head .
+
+div#main
+  div.header
+
+    h1 what I'm up to now
+
+    h2 last updated 2026-07-04
+
+  div.content
+
+    h2.content-subhead employment
+    p So I've got a new job in post secondary. I think I might like it a lot. It's been a real change of pace from private sector (especially startups and the usual SaaS B2B pace).
+
+    p It's about 50/50 work I'm comfortable with, and work that's new and (more) challenging. Cloud stuff, software development, platform-y type integrations, etc, are all things I've done lots of. What's new is being co-located with the hardware all this is running on. That means like getting into building servers, racking them, and getting them all configured.
+
+    p It's quite thrilling and totally brand new.
+
+    h2.content-subhead creative writing
+    p I host it somewhere or other (other than here), but I'm in a writing club and trying to get into a daily-ish writing practice.
+    p Currently my goal is to hit 500 words per week of raw newtext, with a feeder goal of 100 words per day. When I was doing that regularly is when I felt the most effective, so yeah, back to it.
+
+    h2.content-subhead fediverse
+
+    p I've been on the fediverse (mostly Lemmy and Bookwyrm and Mastodon) for a while, but now I'm experimenting with being an instance operator.
+
+    p Currently I'm enthralled with  
+      a href="https://codeberg.org/grunfink/snac2#readme" snac2
+      span . Here's my realname instance:  
+      a href="https://snac.jmjanzen.dev" snac.jmjanzen.dev
+      span . I'm still figuring it out. Since I left commercial social media, it actually feels super awkward having my real name / normie persona associated with my social media presense. Not that I'm so wild, but I'm not used to those two worlds being in contact.

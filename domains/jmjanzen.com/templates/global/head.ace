@@ -30,6 +30,8 @@ body
           // fallbacks if no js (trying to be good netizen here)
           noscript
             li.pure-menu-item
+              a.pure-menu-link href="/now" /now
+            li.pure-menu-item
               a.pure-menu-link href="/about" /about
             li.pure-menu-item
               a.pure-menu-link href="/network" /network
@@ -41,7 +43,7 @@ body
               a.pure-menu-link href="/blog" /blog
 
 = javascript
-  const NAV_LINKS = ['about', 'network', 'links', 'portfolio', 'blog']
+  const NAV_LINKS = ['now', 'about', 'network', 'links', 'portfolio', 'blog']
   const current = {{.Slug}}
   const navMenu = document
     .getElementById('menu')
