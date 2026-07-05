@@ -4,8 +4,9 @@ tmp_dir = "tmp"
 
 [build]
   args_bin = []
-  bin = "./tmp/main blog.jmjanzen.com"
+  bin = "./tmp/main"
   cmd = "go build -o ./tmp/main ./cmd/main.go"
+  entrypoint = ["./tmp/main"]
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "testdata", "utils"]
   exclude_file = []
@@ -42,9 +43,7 @@ tmp_dir = "tmp"
   clean_on_exit = false
 
 [proxy]
-  app_port = 8383
   enabled = true
-  proxy_port = 9393
 
 [screen]
   clear_on_rebuild = false
