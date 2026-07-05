@@ -12,8 +12,7 @@ div.main
 div.content
 
   h2.content-subhead the basics
-  p#content-about. I have been working professionally as a software developer
-    for {milis}ms (or {years} years).
+  p#content-about. I have been working professionally as a software developer for ... about 10 years.
 
   p. Though I'm more of a back-ender, I'm pretty comfortable along the entire contemporary
     stack, especially now with libraries like ReactJS and frameworks like NextJS etc,
@@ -111,9 +110,10 @@ div.content
     window.onload = function () {
 
         // Populate `{years}`, `{milis}` with appropriate values
+        var nerdTime = "{milis}ms (or {years} years)."
+          .replace(/{milis}/g, elapsedGradTime.milis)
+          .replace(/{years}/g, elapsedGradTime.days);
 
         document.getElementById("content-about").innerHTML =
-            document.getElementById("content-about").innerHTML.replace(/{milis}/g, elapsedGradTime.milis);
-        document.getElementById("content-about").innerHTML =
-            document.getElementById("content-about").innerHTML.replace(/{years}/g, elapsedGradTime.days);
+            document.getElementById("content-about").innerHTML.replace(/\.\.\..*/, nerdTime);
     }
