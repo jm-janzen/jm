@@ -21,7 +21,7 @@ go run ./cmd/main.go api.jmjanzen.com
 
 ### Running locally (with live reloading)
 
-If you want live reloading of the frontend use [air](github.com/air-verse/air) run the following, and make sure to connect to the `proxy_port` to actually get the live reloading. By default, this will use the base configuration, [./.air.toml](here).
+If you want live reloading of the frontend use [air](github.com/air-verse/air) run the following, and make sure to connect to the `proxy_port` to actually get the live reloading. By default, this will use the base configuration, [here](./.air.toml).
 
 ```shell
 air -proxy.app_port 8080 -proxy.proxy_port 9090 jmjanzen.com
