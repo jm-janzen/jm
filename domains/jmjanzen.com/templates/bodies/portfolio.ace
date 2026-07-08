@@ -158,3 +158,10 @@ div.content
           label repo
         td
           a href="https://github.com/jm-janzen/jm/tree/main/domains/jmjanzen.com" github.com/jm-janzen/jm
+
+      // Would be nice to have a little JS easter egg to hide this
+      tr
+        td
+          label waaay old version
+        td
+          a href="https://old.jmjanzen.com" old.jmjanzen.com
