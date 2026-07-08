@@ -35,16 +35,12 @@ body
             li.pure-menu-item
               a.pure-menu-link href="/about" /about
             li.pure-menu-item
-              a.pure-menu-link href="/network" /network
-            li.pure-menu-item
               a.pure-menu-link href="/links" /links
-            li.pure-menu-item
-              a.pure-menu-link href="/portfolio" /portfolio
             li.pure-menu-item
               a.pure-menu-link href="/blog" /blog
 
 = javascript
-  const NAV_LINKS = ['now', 'about', 'network', 'links', 'portfolio', 'blog']
+  const NAV_LINKS = ['now', 'about', 'links', 'blog']
   const current = {{.Slug}}
   const navMenu = document
     .getElementById('menu')
