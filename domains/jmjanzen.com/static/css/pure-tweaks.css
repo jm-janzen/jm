@@ -8,6 +8,7 @@ div.pure-menu .pure-menu-heading,
 #mode-controls {
     padding: 0;
     background-color: var(--pop);
+    text-transform: none;
 }
 #mode-controls {
     display: inline-block;
