@@ -55,6 +55,13 @@ nav#menu
 div.pure-menu
 ul.pure-menu-list
 li.pure-menu-item
+a {
+    color: var(--agency-fg-waiting) !important;
+}
+nav#menu
+div.pure-menu
+ul.pure-menu-list
+li.pure-menu-item
 a.pure-menu-link:hover, .nav-active {
     background-color: var(--agency-bg-selected) !important;
     color: var(--agency-fg-selected) !important;
