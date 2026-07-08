@@ -12,23 +12,19 @@ div.main
 div.content
 
   h2.content-subhead the basics
-  p#content-about. I have been working professionally as a software developer for ... about 10 years.
+  p#content-about. I have been working professionally "in tech" a software developer of some shape
+    or other for ... about 10 years.
 
-  p. Though I'm more of a back-ender, I'm pretty comfortable along the entire contemporary
-    stack, especially now with libraries like ReactJS and frameworks like NextJS etc,
-    increasingly formalising <abbr title="front-end">FE</abbr> work, making it less a matter
-    of opinion, and more a set of best practices. (I'm all for creativity in personal
-    projects but for work stuff I prefer boring and battle-tested.)
+  p I like it. It suits me. It's the kind of work I do on my own time when no one is waiting on me.
 
-  p. Lately I've been getting into the <em>infra</em> side of backend
-    engineering. You know how when you brick your machine and wish you could just
-    roll back the change, or start fresh with all your changes up until that
-    point? That's essentially what declarative infrastructure is. It's a far cry
-    from how we used to do things: manually <code>ssh</code>ing into specific
-    machine and applying patches, etc.
+  p. I've put down roots in Ontario/Canada. It's as nice a home as I've ever known, and I'm thankful
+    that I get to live here. Not that I've travelled very much, so I'm sure there are a million *
+    million other places that are just as better.
 
-  p. I do love the manual approach, but again--for work stuff--I prefer the increased
-    reliability of the <abbr title="High Availability">HA</abbr>/distributed approach.
+  p. Aside from maybe a little extra dash from the eccentricity jar, I'm your standard-issue nerd. I
+    love playing video games and listening to electronic music, tinkering with computers, servers, and
+    software. Linux, especially, has been a breath of fresh air for someone who likes to fully
+    customize their desktop and terminal experiences.
 
   h2.content-subhead rip & tear & learn
 
@@ -69,9 +65,9 @@ div.content
     (<b>git</b>, <a href="https://www.gnu.org/software/coreutils/">the GNU coreutils</a>,
     and other fundamental CLI tools).
 
-  p. This appreciate for the aesthetics of the Unix developer flow played a big role in my
-    inclination toward becoming a software developer. There's something about working in
-    the terminal that looks and feels <i>so cool</i> to me.
+  p. This appreciation for the philosophy and aesthetics of the Unix developer flow played a big
+    role in my inclination toward becoming a software developer. There's something about working in
+    the terminal that looks and feels <i>so cool</i>.
 
   h2.content-subhead like my fav text editor I'm modal lol
 
@@ -85,6 +81,17 @@ div.content
       playing with my 2 cats and 1 dog, and the unflinching adoration of my peers. ;p
 
   p. Just kidding, I actually love constructive criticism.
+
+  h2.content-subhead my damage
+
+  p. You may have noticed I can write in a somewhat idiosyncratic way. Who knows where that comes
+    from. Maybe because I was told to avoid cliches in writing and I took that to mean being
+    somewhat chaotic is preferable to being boring.
+
+  p. Mostly I just find it fun. Like you know when
+    you're listening to someone speak and you know how the sentence is going to end, and you're both
+    just waiting for the audio to finish? That's when I like to peel off a thread to use that idle
+    brain time to try and sub in something a little more interesting.
 
   hr
 
