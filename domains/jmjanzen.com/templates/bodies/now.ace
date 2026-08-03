@@ -5,20 +5,29 @@ div#main
 
     h1 what I'm up to now
 
-    h2 last updated 2026-07-04
+    h2 last updated 2026-08-03
 
   div.content
 
-    h2.content-subhead employment
-    p So I've got a new job in post secondary. I think I might like it a lot. It's been a real change of pace from private sector (especially startups and the usual SaaS B2B pace).
+    h2.content-subhead doom
+    p The sweet little bird of hyperfocus has recently alighted on my shoulder. And it tells me to build. 
 
-    p It's about 50/50 work I'm comfortable with, and work that's new and (more) challenging. Cloud stuff, software development, platform-y type integrations, etc, are all things I've done lots of. What's new is being co-located with the hardware all this is running on. That means like getting into building servers, racking them, and getting them all configured.
+    p It describes weird rectangles tortured onto diagonal vectors. And bids me to fill the dark spaces with failing lights and spoopy man-like creatures. It tells me ridiculous stories like "man vs nature = tech base vs wooden hell" and I enunciate these using linedefs, vertices, and action specials.
 
-    p It's quite thrilling and totally brand new.
+    p <code>W1 Door Open Stay</code>: you can always go back, but you bring your new demons with you.
+
+    hr
+
+    p So yeah, I'm  
+      a href=https://doomwiki.org/wiki/Ultimate_Doom_Builder Doom mapping
+      span  again. I mean, I'm always Doom mapping or modding, but lately I've been even more into than usual. Like spending every evening at it at some points--obsessed.
+
+    p It's a wonderful feeling, and I'll be sad when it leaves. But that little bird always lands somewhere else eventually.
 
     h2.content-subhead creative writing
     p I host it somewhere or other (other than here), but I'm in a writing club and trying to get into a daily-ish writing practice.
     p Currently my goal is to hit 500 words per week of raw newtext, with a feeder goal of 100 words per day. When I was doing that regularly is when I felt the most effective, so yeah, back to it.
+    p It's not going as well as I'd like it to be going, but it's going better than just waiting for the inspiration to come.
 
     h2.content-subhead fediverse
 
@@ -29,3 +38,11 @@ div#main
       span . Here's my realname instance:  
       a href="https://snac.jmjanzen.dev" snac.jmjanzen.dev
       span . I'm still figuring it out. Since I left commercial social media, it actually feels super awkward having my real name / normie persona associated with my social media presense. Not that I'm so wild, but I'm not used to those two worlds being in contact.
+
+    h2.content-subhead employment
+    p So I've got a new job in post secondary. I think I might like it a lot. It's been a real change of pace from private sector (especially startups and the usual SaaS B2B pace).
+
+    p It's about 50/50 work I'm comfortable with, and work that's new and (more) challenging. Cloud stuff, software development, platform-y type integrations, etc, are all things I've done lots of. What's new is being co-located with the hardware all this is running on. That means like getting into building servers, racking them, and getting them all configured.
+
+    p It's quite thrilling and totally brand new.
+
