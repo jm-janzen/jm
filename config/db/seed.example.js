@@ -49,6 +49,7 @@ deeb.tils.insertMany([
 		"id": 1,
 		"slug": "soup-is-hot",
 		"name": "Soup is hot",
+		"tags": ["food", "pain"]
 		"summary": "I made a soup and tried to eat it and it was really hot!",
 	},
 ])
