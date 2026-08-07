@@ -200,6 +200,9 @@ const docTemplate = `{
         "tils.Til": {
             "type": "object",
             "properties": {
+                "elaborationUrl": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
