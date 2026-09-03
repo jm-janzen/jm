@@ -10,6 +10,7 @@ import (
 
 func Launch() {
 	router := gin.Default()
+	router.Static("/static/", "./domains/blog.jmjanzen.com/static/")
 
 	router.SetTrustedProxies([]string{os.Getenv("TRUSTED_PROXY")})
 
