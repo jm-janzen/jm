@@ -5,9 +5,14 @@ div#main
 
     h1 what I'm up to now
 
-    h2 last updated 2026-08-03
+    h2 last updated 2026-11-10
 
   div.content
+
+    h2.content-subhead getting frustrated with this website
+    p Originally, I made this website way way back because I wanted to play with Go, but in the years since I've fallen for the simplicity of the indieweb scene calls "web weaving." Which is a lot cozier feeling, and simpler to deploy.
+
+    p I've found plain hand-written HTML with nginx SSIs for "templating" really lets me sling content a lot faster. On my other websites, I can make a page and publish it to the open web in seconds.
 
     h2.content-subhead doom
     p The sweet little bird of hyperfocus has recently alighted on my shoulder. And it tells me to build. 
