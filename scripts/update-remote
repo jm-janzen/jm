@@ -1,7 +1,32 @@
-#!/usr/bin/env -S bash
+#!/bin/bash
 
-source "${ENV_FILE:-.env}"
+if [[ -z $ENV_FILE ]]
+then
+    echo 'Usage: ENV_FILE=.env ./scripts/update-remote'
+    exit 1
+fi
 
-docker save $IMAGE_NAME:latest | gzip | ssh $REMOTE_HOST docker load
+if [[ ! -f $ENV_FILE ]]
+then
+    echo "File does not exist: '$ENV_FILE'"
+    exit 1
+fi
 
-DOCKER_HOST="ssh://${REMOTE_HOST}" docker compose --env-file ${ENV_FILE} up -d
+source "${ENV_FILE}"
+
+# Send to our server
+podman save localhost/$IMAGE_NAME:latest | gzip | ssh $REMOTE_HOST docker load
+
+# Rename image to remove podman "localhost" prefix
+ssh $REMOTE_HOST docker image tag localhost/$IMAGE_NAME:latest $IMAGE_NAME:latest
+ssh $REMOTE_HOST docker image rm localhost/$IMAGE_NAME:latest
+
+# Move only nessa files to remote
+rsync -hivrap --files-from=sync-files.csv $LOCAL_DIR $REMOTE_HOST:$REMOTE_DIR
+
+# Start up
+ssh ovh <<MEOW
+cd $REMOTE_DIR
+docker compose up -d --force-recreate
+rm $ENV_FILE
+MEOW
