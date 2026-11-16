@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/img/fb.favicon.jpg" type="image/x-icon">
+    <title>Make a Doom map</title>
+    <style>
+    article {
+        background-color: darkblue;
+        background-image: url('/static/img/fb.jpg');
+        color: lightblue;
+        max-width: 1024px;
+        padding: 1% 1.5%;
+    }
+    article p {
+        background-color: rgba(0,0,0,0.5);
+        padding: 10px 2px;
+        margin: 0;
+    }
+    article a {
+        color: white;
+    }
+    section.image-strip {
+        background-color: rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    section.image-strip img,
+    section.image-strip p {
+        padding: 0 1%;
+    }
+    </style>
+
+    <script>
+        // Dear noscripters, this script is not essential. It just scrambles certain words, but the
+        // information is still available in the title property of an element with the 'scramble'
+        // class
+        const m = {}
+        function scramble (interval = 1000 * 16) {
+            setTimeout(() => {
+                const targets = document.getElementsByClassName('scramble');
+                for (let i = 0; i < targets.length; i++) {
+                    const target = targets[i];
+                    const text = target.innerHTML;
+                    const isFirstFetch = target.title.match(/^or\s/);
+                    let words = [];
+
+                    if (isFirstFetch) {
+                        const newTitle = `${target.innerHTML} ${target.title}`;
+
+                        target.setAttribute('title', newTitle)
+
+                        // FIXME Right pad shorter words to length of longest
+                        words = newTitle.split('or').map(x => x.trim())
+                        m[i] = words;
+                    } else {
+                        words = m[i];
+                    }
+
+                    const word = words[Math.floor(Math.random() * words.length)];
+
+                    target.innerHTML = word
+                }
+
+                scramble();
+
+            }, interval);
+        }
+
+        document.addEventListener("DOMContentLoaded", scramble);
+    </script>
+</head>
+
+<body>
+<nav>
+    <a href="/">back to work n' worry</a>
+    <br />
+</nav>
+<hr />
+<article>
+    <h1>Please make a Doom map</h1>
+    <p>
+        <label>Created:</label> 2026-09-06<br />
+        <label>Author:</label> J.M. "JM" Janzen<br />
+    </p>
+
+    <p>
+        You don't have to listen to me (I free you), but Doom mapping
+        is something I enjoy a lot, so if it's something that sounds like it
+        would be even a little interesting to you, I strongly encourage you to
+        try.
+    </p>
+    <p>
+        Here, looks at these screenshots and tell me it doesn't stir some primal generative urge
+        within you.
+    </p>
+
+    <section class="image-strip">
+        <a href="/static/img/udb-ui.jpg">
+            <img
+                src="/static/img/udb-ui.thumb.jpg"
+                alt="Ultimate Doombuilder UI --- top-down perspective showing a map composed mostly
+                of right angles with medium density of monsters"><!-- comment out \r lololol
+        --></a>
+        <a href="/static/img/doom-combi.jpg">
+            <img
+                src="/static/img/doom-combi.thumb.jpg"
+                alt="Doom FPS screenshot --- first-person perspective showing dark grey hallway with
+                thin stripes of lighting leading to a door marked with an 'exit' sign">
+        </a>
+        <p>
+            <em>Screenshots of a map being edited and playtested</em>
+        </p>
+    </section>
+    <p>
+        Jump to <a href="#tldr">Taggart, Let's Doom Run</a> for the short
+        version.
+    </p>
+
+    <h2>Step 1: "But can it run Doom?"</h1>
+    <p>
+        So, you will need to actually be able to <em>run</em> Doom to get anything out of this, so if you aren't set up to do that yet, here are some basic instructions. (Note, I default to linux because that's what I run, but other <span title="😒">proprietary</span> "operating systems" should also be able to run it.)
+    </p>
+
+    <h3>Step 1.1: Install some Doom</h3>
+    <p>
+        If you already have a version of Doom purchased to play on a computer,
+        then you just need to find the file named <code>DOOM.WAD</code> to make
+        a map for Doom 1 (1993), or <code>DOOM2.WAD</code> to make a map of
+        Jazz Jackrabbit 2 (1994).
+    </p>
+
+    <details>
+        <summary>
+            [ Aside into sourceport and WAD specifics ... ]
+        </summary>
+        <p>
+            These WAD files (short of "Where's All the Data" (weren't the 90's
+            something?)) contain the <em>assets</em> (Eg. the textures, monsters,
+            maps, etc) that show up in the game when you run Doom, which is
+            separate from the <em>game engine</em> that takes these assets and lets
+            you run them in a playable form on your computer.
+        </p>
+        <p>
+            Depending on how you purchased your copy of Doom, these <code>.WAD</code> files could be in various locations on your PC or installation CD. So if you can't find it by searching your filesystem, run a web search for "where is DOOM.WAD file {GoG,Steam,CD,floppy,etc}"
+        </p>
+        <p>
+            Nowadays these game engines are knows as "source ports" (ports of the
+            source code of the original Doom game engine). That's the somewhat
+            accurate abridged version anyway. The point is there are <a
+            href="https://doomwiki.org/wiki/Source_port">a lot</a> of source ports
+            available, free and legal.
+        </p>
+    </details>
+
+    <p>
+        To make things simpler for you, I'm going to suggest you use <a
+        href="https://www.chocolate-doom.org/wiki/index.php/Chocolate_Doom">Chocolate
+        Doom</a> if you're looking for a more authentic retro experience, and
+        <a href="https://zdoom.org/downloads">UZDoom</a> if you want a flashier
+        experience.
+    </p>
+
+    <h3>Step 1.1b: But I have no Doom and no money!</h3>
+    <p>
+        If you don't have a copy of Doom to copy a <code>.WAD</code> from, then
+        no problem! You can achieve the same results using <a
+        href="https://freedoom.github.io/download.html">FREEDOOM</a>, and just
+        subsituting <code>freedom.wad</code> or <code>freedoom2.wad</code> for
+        the above. The assets will appear different, but you'll be able to make
+        and play maps just as easily.
+    </p>
+
+    <h2>Step 2: Doombuilding</h2>
+    <p>
+        Now that you've got some form of Doom up and running on your computer,
+        it's time to <strong>build</strong>. Some Doom. Doom-build, if you
+        will.
+    </p>
+    <!-- TODO Fill in installation / setup instructions -->
+    <p>
+        Like with the sourceports, there are pleth/ora (and a lot) of tools to
+        make Doom levels (AKA "maps") to run using your assets and sourceport.
+        Currently, the main map maping/editing utility is probably <a
+        href="https://www.doomwiki.org/wiki/Ultimate_Doom_Builder">Ulimate&nbsp;Doombuilder</a>,
+        so that's what I'll focus on. But there are a bunch of support tools to
+        get into once you've got the basics down.
+    </p>
+    <p>
+        So UDB, eh? OK bigdog, depending on your OS and your preferences, you
+        can install this <a
+        href="https://github.com/UltimateDoomBuilder/UltimateDoomBuilder#manual-build">from
+        source</a>, via <a
+        href="https://github.com/UltimateDoomBuilder/UltimateDoomBuilder/releases">handy
+        flatpak</a>, and supposedly even this <a
+        href="https://www.doomworld.com/forum/topic/158664-ultimate-bun-builder-udb-appimage-for-linux-users/">AppImage</a>
+        (which I haven't tried out yet myself). There are also these <a
+        href="https://ultimatedoombuilder.github.io/">other installers</a>, but
+        idk anything about those.
+    </p>
+
+    <h3>Step 2.1: Make a box</h3>
+    <p>
+        So the bigshot has their Doom and their Doombuilder running. OK, let's see you put 'em together.
+    </p>
+    <p>
+        <!-- TODO Basics of
+        1. new map
+        2. draw box (with lines)
+        3. place player start
+        4. play test (setup)
+        5. place things (enemy and weapon
+        6. make door
+        7. make exit
+        -->
+        <!-- TODO Thumbify these pictures (320x240) -->
+        <section class="image-strip">
+            <a href="/static/img/doom-udb-newmap.jpg">
+                <img src="/static/img/doom-udb-newmap.thumb.jpg" alt="TODO">
+            </a>
+            <a href="/static/img/doom-udb-jazz-jackrabbit.jpg">
+                <img src="/static/img/doom-udb-jazz-jackrabbit.thumb.jpg" alt="TODO">
+            </a>
+        </section>
+        <p>
+            TODO Written instructions (select iwad, matching format, set defaults later (don't
+            describe))
+        </p>
+        <section class="image-strip">
+            <a href="/static/img/doom-udb-draw-box-start.jpg">
+                <img src="/static/img/doom-udb-draw-box-start.thumb.jpg" alt="TODO">
+            </a>
+            <a href="/static/img/doom-udb-draw-box-done.jpg">
+                <img src="/static/img/doom-udb-draw-box-done.thumb.jpg" alt="TODO">
+            </a>
+        </section>
+        <p>
+            TODO Written instructions (ctrl+d, click around)
+        </p>
+        <section class="image-strip">
+            <a href="/static/img/doom-udb-player-start.jpg">
+                <img src="/static/img/doom-udb-player-start.thumb.jpg" alt="TODO">
+            </a>
+        </section>
+        <p>
+            TODO Thing mode and place player start
+        </p>
+        <!-- TODO Link  -->
+        <p>
+            If you want to go ahead and try running your box now, see <a href="#cyrax-was-a-cool-character">Doomrunning</a>
+        </p>
+
+    </p>
+    <p>
+        Once you're comfortable with these basics I recommend you look up some video tutorials
+        (there are many), but this is enough to start poking around and being a nuissance.
+    </p>
+
+    <h2 id="cyrax-was-a-cool-character">Step 3: Doomrunning</h2>
+    <section class="image-strip">
+        <a href="/static/img/doom-udb-testing-resources.jpg">
+            <img src="/static/img/doom-udb-testing-resources.thumb.jpg" alt="TODO">
+        </a>
+        <a href="/static/img/doom-udb-testing-executable.jpg">
+            <img src="/static/img/doom-udb-testing-executable.thumb.jpg" alt="TODO">
+        </a>
+    </section>
+    <p>
+        TODO Describe picking iwad and sourceport executable
+    </p>
+    <section class="image-strip">
+        <a href="/static/img/doom-udb-testing-engine-stock.jpg">
+            <img src="/static/img/doom-udb-testing-engine-stock.thumb.jpg" alt="TODO">
+        </a>
+        <a href="/static/img/doom-udb-testing-engine-custom.jpg">
+            <img src="/static/img/doom-udb-testing-engine-custom.thumb.jpg" alt="TODO">
+        </a>
+    </section>
+    <p>
+        TODO Describe parameters?
+    </p>
+
+    <h2>Step 4: Doomsharing</h2>
+    <!-- TODO -->
+
+    <hr>
+
+    <section>
+        <h2 id="tldr">T,LDR</h2>
+        <ol>
+            <li>Get Doom</li>
+            <li>Get Doombuilder</li>
+            <li>Make a box</li>
+            <li>Get it running</li>
+            <li>Test your boring box</li>
+            <li>
+                Make your boring box interesting
+                (this is <em class="scramble" title="or optional">key</em>)
+            </li>
+            <li>
+                Share your interesting box
+            </li>
+            <li>Repeat</li>
+        </ol>
+    </section>
+</article>
+<hr />
+<footer>
+<p>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4</a>=scrape me and Surgeon
+    John will be hoping you're doing well
+</p>
+</footer>
+</body>
+</html>
+</div>
