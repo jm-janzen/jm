@@ -10,7 +10,7 @@
         background-color: darkblue;
         background-image: url('/static/img/fb.jpg');
         color: lightblue;
-        max-width: 1024px;
+        max-width: 1224px;
         padding: 1% 1.5%;
     }
     article p {
@@ -21,6 +21,7 @@
     article a {
         color: white;
     }
+    /* TODO Outline img links */
     section.image-strip {
         background-color: rgba(0,0,0,0.5);
         text-align: center;
@@ -177,7 +178,6 @@
         it's time to <strong>build</strong>. Some Doom. Doom-build, if you
         will.
     </p>
-    <!-- TODO Fill in installation / setup instructions -->
     <p>
         Like with the sourceports, there are pleth/ora (and a lot) of tools to
         make Doom levels (AKA "maps") to run using your assets and sourceport.
@@ -203,54 +203,156 @@
     <p>
         So the bigshot has their Doom and their Doombuilder running. OK, let's see you put 'em together.
     </p>
+    <!-- TODO Basics of
+    1. [x] new map
+    2. [x] draw box (with lines)
+    3. [x] place player start
+    7. [x] make exit
+    4. [ ] play test (setup)
+    5. [ ] place things (enemy and weapon)
+    6. [ ] make door
+    -->
+    <!-- TODO Thumbify these pictures (320x240) -->
+    <section class="image-strip">
+        <!-- FIXME Retake this screenshot with Doom 1 format selected (lol you're never doing
+        this) -->
+        <a href="/static/img/doom-udb-newmap.jpg">
+            <img src="/static/img/doom-udb-newmap.thumb.jpg" alt="UDB Map Options modal with
+            Doom 2 format selected, though I end up using Doom 1 format">
+        </a>
+        <a href="/static/img/doom-udb-jazz-jackrabbit.jpg">
+            <img src="/static/img/doom-udb-jazz-jackrabbit.thumb.jpg" alt="Map Options, Add
+            Resource,and Browse WAD File modals open, with DOOM.WAD selected in file browser">
+        </a>
+    </section>
     <p>
-        <!-- TODO Basics of
-        1. new map
-        2. draw box (with lines)
-        3. place player start
-        4. play test (setup)
-        5. place things (enemy and weapon
-        6. make door
-        7. make exit
-        -->
-        <!-- TODO Thumbify these pictures (320x240) -->
-        <section class="image-strip">
-            <a href="/static/img/doom-udb-newmap.jpg">
-                <img src="/static/img/doom-udb-newmap.thumb.jpg" alt="TODO">
-            </a>
-            <a href="/static/img/doom-udb-jazz-jackrabbit.jpg">
-                <img src="/static/img/doom-udb-jazz-jackrabbit.thumb.jpg" alt="TODO">
-            </a>
-        </section>
-        <p>
-            TODO Written instructions (select iwad, matching format, set defaults later (don't
-            describe))
-        </p>
-        <section class="image-strip">
-            <a href="/static/img/doom-udb-draw-box-start.jpg">
-                <img src="/static/img/doom-udb-draw-box-start.thumb.jpg" alt="TODO">
-            </a>
-            <a href="/static/img/doom-udb-draw-box-done.jpg">
-                <img src="/static/img/doom-udb-draw-box-done.thumb.jpg" alt="TODO">
-            </a>
-        </section>
-        <p>
-            TODO Written instructions (ctrl+d, click around)
-        </p>
-        <section class="image-strip">
-            <a href="/static/img/doom-udb-player-start.jpg">
-                <img src="/static/img/doom-udb-player-start.thumb.jpg" alt="TODO">
-            </a>
-        </section>
-        <p>
-            TODO Thing mode and place player start
-        </p>
-        <!-- TODO Link  -->
-        <p>
-            If you want to go ahead and try running your box now, see <a href="#cyrax-was-a-cool-character">Doomrunning</a>
-        </p>
-
+        Launch your UDB and start a new map (<code>ctrl+n</code>). Game configuration dictates
+        what features UDB will make available. For simplicity just pick a "Doom format"
+        configuration matching the version of Doom you want to make a map for. So if you're
+        mapping for Doom (1993) use <code>Doom: Doom (Doom format)</code>, and if you're
+        mapping for Doom 2 (<span title="seriously, they could have cooked Doom 2 for way
+        longer---probably should have">1994</span>) then you can use <code>Doom: Doom 2
+        (Jazz&nbsp;Jackrabbit format)</code>.
     </p>
+    <p>
+        You'll also need to select the matching iWAD that contains all the textures and
+        creatures that you'll be using (Doom or Jazz Jackrabbit or Doom 2, I guess).
+    </p>
+
+    <section class="image-strip">
+        <a href="/static/img/doom-udb-draw-box-start.jpg">
+            <img src="/static/img/doom-udb-draw-box-start.thumb.jpg" alt="UDB top-down grid view
+            showing a partially drawn box, three lines are completed">
+        </a>
+        <a href="/static/img/doom-udb-draw-box-done.jpg">
+            <img src="/static/img/doom-udb-draw-box-done.thumb.jpg" alt="UDB top-down grid vew
+            showing a completed box, solid with a brown floor">
+        </a>
+    </section>
+    <p>
+        Enter draw lines mode (<code title="maybe it's something else---I could have modified the
+        default key bindings and forgotten">ctrl+d</code>) and just click around until you
+        complete a box, or other shape. You shouldn't get in the habit of just drawing boring
+        symmetrical boxes, but it's OK for this once.
+    </p>
+
+    <h3>Step 2.2: Put a little guy in the box</h3>
+    <p>
+        This would be a good time to save your map. It's pretty intuitive if you've used any
+        graphical user interface in the last 30 years. I believe in you.
+    </p>
+    <p>
+        (If you want to go ahead and try running your box now, see <a
+        href="#cyrax-was-a-cool-character">Doomrunning</a>. It's not a bad habit to frequently
+        playtest your maps as you're creating them.)
+    </p>
+
+    <section class="image-strip">
+        <a href="/static/img/doom-udb-player-start.jpg">
+            <img src="/static/img/doom-udb-player-start.thumb.jpg" alt="UDB top-down grid view
+            showing a player sprite placed inside the previously drawn box">
+        </a>
+    </section>
+    <p>
+        Enter Things Mode (<code title="yeah, just T">t</code>) and <strong>right</strong>-click anywhere in your box.
+        I think by default an "Edit Thing" modal will pop up with the Thing "Player 1 start"
+        selected. Anyway, that is what you want.
+    </p>
+
+    <h3>Step 2.3: Let me out of the box!</h3>
+    <p>
+        So you've got a map, but you can't actually finish it. You just spawn in your box and run
+        around until you decide to exit. So let's add an exit switch.
+    </p>
+    <p>
+        Personally, I like to add an exit---even a temporary one---as soon as possible. Styles will
+        vary, but it's my guide so I'm showing you my style. Anyway, here's how you do that.
+    </p>
+
+    <section class="image-strip">
+        <img src="/static/img/doom-udb-exit-vertexes.thumb.jpg" alt="TODO">
+        <img src="/static/img/doom-udb-exit-edit-linedef.thumb.jpg" alt="TODO">
+        <img src="/static/img/doom-udb-exit-browse-textures.thumb.jpg" alt="TODO">
+    </section>
+    <p>
+        Enter Vertices mode (<code>v</code>) and <strong>right</strong>-click on one of the of your
+        box to make a smaller sub-line that is 32 map units long (like the first screenshot just
+        above).
+    </p>
+    <p>
+        Then enter visual mode by hover your mouse anywhere within the box and pressing
+        <code>q</code>. This will take you to a first-person view that lets you look around with the
+        mouse and move with the <code>esdf</code> keys (<code>wasd</code> but shifted over to the
+        right by one key).
+    </p>
+    <p>
+        Finally, orient your perspective in the box so that your cursor is highlighting the small
+        line subsection we just created and <strong>right</strong>-click it to bring up the Edit
+        Linedef modal. From here click on the already present texture called <code
+        title="the default texture when building Doom maps or later Jazz Jackrabbit eco-maps">
+        STARTAN1</code>. This will bring up the Browse Textures modal, where you can find the exit
+        switch (use the "Filter" field at the mottom of the modal to help you find it).
+    </p>
+
+    <section class="image-strip">
+        <img src="/static/img/doom-udb-exit-texture-misaligned.thumb.jpg" alt="TODO">
+        <img src="/static/img/doom-udb-exit-texture-aligned.thumb.jpg" alt="TODO">
+    </section>
+    <p>
+        Depending on where you created your line subsection, you might find your texture is
+        off-centre like in the screenshot above. The most intuitive fix is the reset the texture
+        from your visual mode. Visually highlight the texture (no need to select it by clicking
+        even), and press <code>R</code> (<code>shift+r</code>).
+    </p>
+    <p>
+        The texture is still too tall, but changing sector heights is beyond the scope of this
+        guide, <abbrev title="In My Humble Opinion">IMHO</abbrev>. I'll let you figure that out on
+        your own or from another guide. Really, it's OK I'm not jealous. We don't have to be
+        exclusive. You can read other guides.
+    </p>
+
+    <section class="image-strip">
+        <img src="/static/img/doom-udb-exit-add-action.thumb.jpg" alt="TODO">
+    </section>
+    <p>
+        Last step is to actually make the switch function. For this <strong>right</strong>-click on
+        the line with the our switch texture (either from first-person visual mode, or from top-down
+        mode using Linedefs Mode (<code title="that's a lower-case L">l</code>), then selecting
+        Action <code>11 S1 Exit Level</code>.
+    </p>
+    <p>
+        And that's it. Technically a complete, finishable map. You've just go tot add all the other
+        stuff that'll win you those <a href="https://doomwiki.org/wiki/Cacowards">vaunted 
+        Cacowards</a> now.
+    </p>
+
+    <p>
+        TODO Placing more things (enemy, weapon)
+    </p>
+    <p>
+        TODO Make a door
+    </p>
+
     <p>
         Once you're comfortable with these basics I recommend you look up some video tutorials
         (there are many), but this is enough to start poking around and being a nuissance.
@@ -268,6 +370,7 @@
     <p>
         TODO Describe picking iwad and sourceport executable
     </p>
+
     <section class="image-strip">
         <a href="/static/img/doom-udb-testing-engine-stock.jpg">
             <img src="/static/img/doom-udb-testing-engine-stock.thumb.jpg" alt="TODO">
