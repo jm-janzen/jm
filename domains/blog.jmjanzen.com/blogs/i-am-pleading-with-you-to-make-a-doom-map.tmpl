@@ -13,10 +13,14 @@
         max-width: 1224px;
         padding: 1% 1.5%;
     }
+    article aside,
     article p {
         background-color: rgba(0,0,0,0.5);
         padding: 10px 2px;
         margin: 0;
+    }
+    article ol {
+        background-color: rgba(0,0,0,0.5);
     }
     article a {
         color: white;
@@ -198,6 +202,13 @@
         href="https://ultimatedoombuilder.github.io/">other installers</a>, but
         idk anything about those.
     </p>
+    <aside>
+        (So quick disclaimer: I've been using some modified key binding in UDB for so many years
+        that I forget what's original and what's my own edit. So if a keyboard shortcut isn't
+        working for you, double check in <code>Tools &rarr; Preferences &rarr; Controls</code> and
+        search for the functionality that you're missing. I'll endeavour to use correct or at least
+        semantic terms, but you may have to do some scrolling, sorry.)
+    </aside>
 
     <h3>Step 2.1: Make a box</h3>
     <p>
@@ -378,89 +389,203 @@
         Cacowards</a> now.
     </p>
 
-    <h3>Part 2.4: Making room for doors (metaphorical)</h3>
+    <h3>Part 2.4: Making room for doors (metaphorical..?)</h3>
 
     <section class="image-strip">
         <a href="/static/img/make-doom/doom-udb-draw-rectangle-mode-select.jpg">
-            <img src="/static/img/make-doom/doom-udb-draw-rectangle-mode-select.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-draw-rectangle-mode-select.thumb.jpg" alt="UDB
+            top-down view showing Mode drop-down menu open and Draw Rectangle Mode option
+            highlighted">
         </a>
         <a href="/static/img/make-doom/doom-udb-draw-rectangle-mode-draw.jpg">
-            <img src="/static/img/make-doom/doom-udb-draw-rectangle-mode-draw.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-draw-rectangle-mode-draw.thumb.jpg" alt="UDB
+            top-view view showing two rectactular sections drawn in the box">
         </a>
         <a href="/static/img/make-doom/doom-udb-draw-rectangle-mode-delete-sectors.jpg">
-            <img src="/static/img/make-doom/doom-udb-draw-rectangle-mode-delete-sectors.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-draw-rectangle-mode-delete-sectors.thumb.jpg"
+            alt="UDB top-down view with one section of the box remove and the other highlighted so
+            that a narrow gap is left between them">
         </a>
+        <p>
+            <em>Slicing into the box</em>
+            <!-- maybe there is a way to get screen readers to read this part before delving into
+            the section.image-strip above? -->
+        </p>
     </section>
     <p>
-        TODO Describe cutting out rectangles
+        So you've got your box. But you know what's even better than that?---?<strong>two</strong>
+        boxes! Or rectangles. I'm talking <em>rooms</em>, babies. That's where all the action is
+        these days.
+    </p>
+    <p>
+        You could do this with the <code>Draw Lines Mode</code>, but I'm going to teach a handy new
+        trick: <code>Draw Rectangle Mode</code>. It's a handy tool for quickly laying down simple
+        rooms.
+    </p>
+    <p>
+        So start by selecting the mode either from the <code>Mode</code> dropdown, or shortcut
+        <code>control+shift+d</code>. Then left click to start drawing your rectangle, and once
+        again to finish it. Repeat on both sides like in my screenshot so that you have a gap in the
+        middle where our door will go. The size and shape doesn't actually matter<span
+        title="😶">,</span> but the default door texture will look off unless the gap/door is 128
+        map units---seriously though, don't stress about it if it's confusing. Just keep pushing
+        through! You're more than halfway there now, champ.
+    </p>
+    <p>
+        Now create some negative space by mousing over the newly created rectangle and pressing
+        the <code>delete</code> key on your keyboard.
     </p>
 
     <section class="image-strip">
         <a href="/static/img/make-doom/doom-udb-show-untextured-walls.jpg">
-            <img src="/static/img/make-doom/doom-udb-show-untextured-walls.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-show-untextured-walls.thumb.jpg" alt="UDB
+            first-person view showing deleted rectangles form untextured wall inside the box">
         </a>
         <a href="/static/img/make-doom/doom-udb-show-untextured-walls-copy-texture.jpg">
-            <img src="/static/img/make-doom/doom-udb-show-untextured-walls-copy-texture.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-show-untextured-walls-copy-texture.thumb.jpg"
+            alt="UDB first-person view showing textured wall highlighted with the text: control+c">
         </a>
         <a href="/static/img/make-doom/doom-udb-show-untextured-walls-paste-texture.jpg">
-            <img src="/static/img/make-doom/doom-udb-show-untextured-walls-paste-texture.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-show-untextured-walls-paste-texture.thumb.jpg"
+            alt="UDB first-person view highlighting previously untextured wall now textured with the
+            text: control+v">
         </a>
+        <p>
+            <em>Texturing the deleted section</em>
+        </p>
     </section>
     <p>
-        TODO Describe texturing walls
+        Finally, it's a good habit to ocassionally check what the view from the ground (or
+        ethereally floating slightly above it, to one side---it's actually totally normal and cool)
+        looks like by entering first-person view (<code>q</code>).
+    <p>
+        When you do this you'll notice that the deleted sections are missing their textures! Not a
+        problem for cool cats like us, though. Just mouse over a textured wall and press
+        <code>control+c</code> then mouse over an untextured wall and press <code>control+v</code>
+        or your <code>middle mouse-button</code>.
+    </p>
+    <p>
+        Pro tip: You can also paste your texture on to all
+        <span class="scramble" title="or contiguous">connected</span>, untextured wall by holding
+        <code>Shift</code> while you're pasting.
     </p>
 
     <section class="image-strip">
         <a href="/static/img/make-doom/doom-udb-show-untextured-place-door.jpg">
-            <img src="/static/img/make-doom/doom-udb-show-untextured-place-door.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-show-untextured-place-door.thumb.jpg" alt="UDB
+            top-down view of gap in middle of the box, with a small thin rectangle drawn across it">
         </a>
         <a href="/static/img/make-doom/doom-udb-make-door-mode.jpg">
-            <img src="/static/img/make-doom/doom-udb-make-door-mode.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-make-door-mode.thumb.jpg" alt="UDB top-down
+            view with Make Door modal. The checkbox labelled 'Apply action specials' is indicated as
+            selected by an arrow drawn over the screenshot">
         </a>
         <a href="/static/img/make-doom/doom-udb-voila-door.jpg">
-            <img src="/static/img/make-doom/doom-udb-voila-door.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-voila-door.thumb.jpg" alt="UDB first-person
+            view showing the completed door, looking like a rudimentary version of the game Doom">
         </a>
+        <p>
+            <em>Creating a door</em>
+        </p>
     </section>
     <p>
-        TODO Describe making a door
+        Kids nowadays don't even have to worry about making sure their <code>DOORTRAK</code> is
+        lower unpegged---they just push a button! And you can too. Making a door is the simplest way
+        to temporarily separate two spaces. Here's how you do it.
+    </p>
+    <p>
+        Create your door shape. Traditionally, this is a long, thin (128 map units long, by 16 deep)
+        rectangle like here. Quickest way to accomplish this is to do the following:
+    </p>
+    <ol>
+        <li>Activate your <code>Draw Rectangle Tool</code> (see above)</li>
+        <li>Draw the shape of your door</li>
+        <li>Switch to <code>Sectors Mode</code> (<code>s</code>)</li>
+        <li>Click to select the rectangle you just selected</li>
+        <li>Activate Make Door mode (<code>shift+d</code>) or click the tiny "Make Door from
+        selection" button</li>
+        <li>On the resulting Make Door modal select "Apply action specials" so that using the
+        door opens it</li>
+    </ol>
+    <p>
+        Door: done.
     </p>
 
     <h3>Part 2.5: Things and stuff</h3>
 
     <section class="image-strip">
         <a href="/static/img/make-doom/doom-udb-move-player.jpg">
-            <img src="/static/img/make-doom/doom-udb-move-player.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-move-player.thumb.jpg" alt="UDB top-down view
+            with player Thing moved to top part of the square">
         </a>
         <a href="/static/img/make-doom/doom-udb-place-shotgun.jpg">
-            <img src="/static/img/make-doom/doom-udb-place-shotgun.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-place-shotgun.thumb.jpg" alt="UDB top-down view
+            with modal Edit Thing and instructions 1. right click (inside square), 2. selected
+            shotgun (inside modal), and 3. click OK">
         </a>
         <a href="/static/img/make-doom/doom-udb-place-imps.jpg">
-            <img src="/static/img/make-doom/doom-udb-place-imps.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-place-imps.thumb.jpg" alt="UDB top-down view
+            with Edit Thing modal and instructions 1. right-click, 2. type 'imp' in Filter field, 3.
+            select Imp, and 4. click OK and repeat">
         </a>
+        <p>
+            <em>Placing things</em>
+        </p>
     </section>
     <p>
-        TODO Describe moving and placing things
+        Things are all the <em>stuff</em> in Doom that isn't just the walls and floors and doors,
+        etc. You're going to have to deal with them eventually, so first let's move the player on to
+        the other side of our new door, and add some things for them to do.
+    </p>
+    <p>
+        Typically it's seen as a bit boring to have a weapon right where the player starts (this is
+        advice you can ignore once you've got a few maps under your belt), but this is the "Hello
+        World!" of maps so we're keeping it basic.
     </p>
 
     <section class="image-strip">
         <a href="/static/img/make-doom/doom-udb-in-game.jpg">
-            <img src="/static/img/make-doom/doom-udb-in-game.thumb.jpg" alt="TODO">
+            <img src="/static/img/make-doom/doom-udb-in-game.thumb.jpg" alt="In-game screenshot of
+            Doom show showing player's view with a shotgun opening a door and facing some
+            unsuspecting Imps">
         </a>
+        <p>
+            <em>Killing things</em>
+        </p>
     </section>
-
+    <p>
+        Now your map has gameplay. It's a game you can play. There's a lot more to making a really
+        <em>good</em> map, but you've now completed most of the atomic actions that are involved in
+        map-making. It's mostly just about refinement from here.
+    </p>
+    <p>
+        At this point it's OK if you don't feel great about your map. I've been doing this for...
+        many years, and I often feel a kind of creative
+        <span class="scramble" title="or listlessness">dissatisfaction</span>
+        with my maps until they start to take form (or sometimes they just don't). If this feels
+        familiar, take it as a sign of growth that you're developing a sense of taste that outstrips
+        your execution. That only comes with practice and engaging with others in the community.
+    </p>
     <p>
         Once you're comfortable with these basics I recommend you look up some video tutorials
-        (there are many), but this is enough to start poking around and being a nuissance.
+        (there are many), but this is enough to start poking around and being a nuisance. I haven't
+        touched on fundamentals like varying light levels and elevation. There's a whole world to
+        explore from here, really. It's infinite.
     </p>
 
     <h2 id="cyrax-was-a-cool-character">Step 3: Doomrunning</h2>
     <section class="image-strip">
         <a href="/static/img/doom-udb-testing-resources.jpg">
-            <img src="/static/img/doom-udb-testing-resources.thumb.jpg" alt="TODO">
+            <img src="/static/img/doom-udb-testing-resources.thumb.jpg" alt="UDB Game Confgurations
+            modal with Doom format highlighted and a DOOM.WAD resource file selected">
         </a>
         <a href="/static/img/doom-udb-testing-executable.jpg">
-            <img src="/static/img/doom-udb-testing-executable.thumb.jpg" alt="TODO">
+            <img src="/static/img/doom-udb-testing-executable.thumb.jpg" alt="UDB Browse Test
+            Program file picker with a file called ChocolateDoomBuilder highlighted">
         </a>
+        <p>
+            <em>Pick your engine(s)</em>
+        </p>
     </section>
     <p>
         TODO Describe picking iwad and sourceport executable
@@ -468,10 +593,15 @@
 
     <section class="image-strip">
         <a href="/static/img/doom-udb-testing-engine-stock.jpg">
-            <img src="/static/img/doom-udb-testing-engine-stock.thumb.jpg" alt="TODO">
+            <img src="/static/img/doom-udb-testing-engine-stock.thumb.jpg" alt="UDB Game
+            Configurations modal with ChocolateDoomBuilder file selected as the engine for testing
+            Doom maps, skill level 'Hurt me plenty' is selected. In the background of the screenshot
+            you can see a cut off piece of album art for Weedian">
         </a>
         <a href="/static/img/doom-udb-testing-engine-custom.jpg">
-            <img src="/static/img/doom-udb-testing-engine-custom.thumb.jpg" alt="TODO">
+            <img src="/static/img/doom-udb-testing-engine-custom.thumb.jpg" alt="UDB Game
+            Configurations modal with 'Customize parameters' option checked showing command line
+            parameters to the Doom engine terminating in the comment '# MEOW'">
         </a>
     </section>
     <p>
