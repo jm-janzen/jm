@@ -6,6 +6,12 @@
     <link rel="icon" href="/static/img/fb.favicon.jpg" type="image/x-icon">
     <title>Make a Doom map</title>
     <style>
+    body {
+        background-color: black;
+    }
+    a {
+        color: white;
+    }
     article {
         background-color: darkblue;
         background-image: url('/static/img/fb.jpg');
@@ -19,13 +25,10 @@
         padding: 10px 2px;
         margin: 0;
     }
+    article pre,
     article ol {
         background-color: rgba(0,0,0,0.5);
     }
-    article a {
-        color: white;
-    }
-    /* TODO Outline img links */
     section.image-strip {
         background-color: rgba(0,0,0,0.5);
         text-align: center;
@@ -35,7 +38,16 @@
     }
     section.image-strip img,
     section.image-strip p {
-        padding: 0 1%;
+        margin: 0 1%;
+    }
+    section.image-strip img {
+        border: 2px solid dimgrey;
+    }
+    section.image-strip img:hover {
+        border: 2px solid white;
+        /* omg brilliant! */
+        filter: hue-rotate(90deg);
+        background-color: white;
     }
     </style>
 
