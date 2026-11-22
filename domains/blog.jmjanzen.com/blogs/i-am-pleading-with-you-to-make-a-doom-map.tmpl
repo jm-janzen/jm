@@ -214,16 +214,6 @@
     <p>
         So the bigshot has their Doom and their Doombuilder running. OK, let's see you put 'em together.
     </p>
-    <!-- TODO Basics of
-    1. [x] new map
-    2. [x] draw box (with lines)
-    3. [x] place player start
-    7. [x] make exit
-    4. [ ] play test (setup)
-    5. [ ] place things (enemy and weapon)
-    6. [ ] make door
-    -->
-    <!-- TODO Thumbify these pictures (320x240) -->
     <section class="image-strip">
         <!-- FIXME Retake this screenshot with Doom 1 format selected (lol you're never doing
         this) -->
@@ -564,7 +554,8 @@
         <span class="scramble" title="or listlessness">dissatisfaction</span>
         with my maps until they start to take form (or sometimes they just don't). If this feels
         familiar, take it as a sign of growth that you're developing a sense of taste that outstrips
-        your execution. That only comes with practice and engaging with others in the community.
+        your execution. That only comes with practice and engaging with others in the
+        <a href="#share-ur-dooom">community</a>.
     </p>
     <p>
         Once you're comfortable with these basics I recommend you look up some video tutorials
@@ -583,33 +574,124 @@
             <img src="/static/img/doom-udb-testing-executable.thumb.jpg" alt="UDB Browse Test
             Program file picker with a file called ChocolateDoomBuilder highlighted">
         </a>
-        <p>
-            <em>Pick your engine(s)</em>
-        </p>
-    </section>
-    <p>
-        TODO Describe picking iwad and sourceport executable
-    </p>
-
-    <section class="image-strip">
         <a href="/static/img/doom-udb-testing-engine-stock.jpg">
             <img src="/static/img/doom-udb-testing-engine-stock.thumb.jpg" alt="UDB Game
             Configurations modal with ChocolateDoomBuilder file selected as the engine for testing
             Doom maps, skill level 'Hurt me plenty' is selected. In the background of the screenshot
             you can see a cut off piece of album art for Weedian">
         </a>
+        <p>
+            <em>Pick your engine(s)</em>
+        </p>
+    </section>
+    <p>
+        Going to <code>Tools &rarr; Game Configurations</code> and you'll see the...
+        <span class="scramble" title="or Dopefish reference">game configurations</span>. The
+        Resources tab is where you set what assets will be loaded by default when you select the
+        game format in the list to the left. This is mostly just so you don't always have to
+        manually add <code>DOOM.WAD</code> every time you're making a Doom map, or
+        <code>DOOM2.WAD</code> every time you're making a Doom 2 map, and so on...
+    </p>
+    <p>
+        Nodebuilder is something I would ignore for now unless you're specifically trying to target
+        <em class="scramble" title="or traditional or truly retro">vanilla</em> source ports while
+        on a Linux OS. You can still map vanilla but use a more forgiving (with built-in node
+        builder) sourceport just fine. But if you want to play your map in Chocolate Doom or the
+        original EXE, you'll need to build those nodes. I use
+        <a href="https://doomwiki.org/wiki/ELFBSP">elfbsp</a> for this, meself.
+    </p>
+    <p>
+        Finally, we get to the main tab: Testing. Where you specify which sourceports / engines are
+        available to actually play the map you're making. It's really as simple as just clicking the
+        plus sign next to the engine dropdown (pictured above) and selecting the executable that
+        launches the sourceport you want to play with. You'll notice I've selected a script called
+        <code>ChocolateDoomBuilder</code> which is just a wrapper of mine that runs elfbsp on the
+        WAD and then runs it with Chocolate Doom.
+    </p>
+    <p>
+        Actually, let me just... here:
+    </p>
+    <pre>
+        #!/bin/bash
+
+        # -iwad "%WP" -skill "%S"  -warp %L1%L2 %NM -merge "%AP"
+        # so we add a magic comment and the end to trim any excess
+        #
+        #   -iwad "%WP" -warp %L1%L2 %NM -skill "%S" -merge "%AP"# MEOW
+        #                                                        ^
+        #                                       this right here /
+        palestine=$(echo $@ | cut -d# -f1)
+
+        # Capture DoomBuilder temp file pattern
+        pwad=$(echo $palestine | sed -nr 's|^.*-merge ([a-zA-Z0-9/\._-]+\.(wad\|WAD\|autosave\d\|backup\d))$|\1|p')
+        if [[ -z "$pwad" ]]
+        then
+            echo "Couldn't get PWAD from flags: '$palestine'" # will be free
+            exit 1
+        fi
+
+        ajbsp $pwad
+
+        if [[ -n "$DISTROBOX_ENTER_PATH" ]]
+        then
+            echo "we're already in tha box"
+            distrobox-host-exec distrobox enter Ubuntu -- /usr/games/chocolate-doom $palestine
+
+        else
+            echo "going into tha box..."
+            distrobox enter Ubuntu -- /usr/games/chocolate-doom $palestine
+        fi
+    </pre>
+    <p>
+        I use distrobox to get to my Podman containers, but if you're on "bare metal" lol you don't
+        have to bother (if you're not on Linux or Mac and don't know what tha heccc this is about
+        mannn, don't worry about it. :o
+    </p>
+    <p>
+        Also yeah, it looks like I'm still using <em>ajbsp</em> in this script, which actually might
+        explain some weird glitches I've seen from time to time...<!--
+        --><span class="scramble" title="or oops or ..........or ! or ?">...</span>
+    </p>
+
+    <section class="image-strip">
         <a href="/static/img/doom-udb-testing-engine-custom.jpg">
             <img src="/static/img/doom-udb-testing-engine-custom.thumb.jpg" alt="UDB Game
             Configurations modal with 'Customize parameters' option checked showing command line
             parameters to the Doom engine terminating in the comment '# MEOW'">
         </a>
+        <p>
+            <em>Custom parameters</em>
+        </p>
     </section>
     <p>
-        TODO Describe parameters?
+        So you probably won't need to do this, but it can be helpful to see what UDB is passing to
+        the program. So like <code>-iwad "%WP" -file "%AP"</code> will be the equivalent of of
+        running <code>ChocolateDoom -iwad "/home/jm/doom/DOOM.WAD" -file
+        "/home/jm/doom/E1M1.wad"</code> (you'll see this preview in the Result box of the modal).
+        This is mostly useful if you're passing arguments to a custom script like in my case.
     </p>
 
-    <h2>Step 4: Doomsharing</h2>
-    <!-- TODO -->
+    <h2 id="share-ur-dooom">Step 4: Doomsharing</h2>
+    <p>
+        There are plenty of communities and places to share your map. I got my start at
+        <a href="https://www.doomworld.com/">doomworld</a>---they're very friendly and welcoming of
+        newcomers. If you your first map, you <em>will</em> get some feedback and encouragement. As
+        I've mentioned elsewhere on this website, I got my start in programming because I asked a
+        scripting question and someone just whipped up an example map with fully commented script
+        for me to dissect!
+    </p>
+    <p>
+        There are loads of other communities online. Pretty much any social platform will have its
+        Doom bubble. You just have to find them. There's also what's probably the closest thing to
+        an "official" repository of Doom maps:
+        <a href="https://www.gamers.org/pub/idgames/">/idgames</a>, or the DW mirror:
+        <a href="https://www.doomworld.com/idgames">/idgames</a>
+    </p>
+    <p>
+        If you've taken the time to try making a Doom map and you're looking for someone's thoughts
+        on it, or you're just proud and you want to share it, I would actually genuinely love it if
+        you <a href="mailto:hello@jmjanzen.com">sent it to me</a> to check out
+    </p>
 
     <hr>
 
@@ -617,7 +699,7 @@
         <h2 id="tldr">T,LDR</h2>
         <ol>
             <li>Get Doom</li>
-            <li>Get Doombuilder</li>
+            <li>Get Doom<em>builder</em></li>
             <li>Make a box</li>
             <li>Get it running</li>
             <li>Test your boring box</li>
