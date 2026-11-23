@@ -63,8 +63,9 @@
         // Dear noscripters, this script is not essential. It just scrambles certain words, but the
         // information is still available in the title property of an element with the 'scramble'
         // class
-        const m = {}
-        function scramble (interval = 1000 * 16) {
+        const m = [];
+        const n = [];
+        function scramble (interval = 1000 * 256) {
             setTimeout(() => {
                 const targets = document.getElementsByClassName('scramble');
                 for (let i = 0; i < targets.length; i++) {
@@ -79,8 +80,10 @@
                         target.setAttribute('title', newTitle)
 
                         // FIXME Right pad shorter words to length of longest
+                        // FIXME Change sep string to /
                         words = newTitle.split('or').map(x => x.trim())
                         m[i] = words;
+                        n[i] = longestWord = 0; // TODO
                     } else {
                         words = m[i];
                     }
@@ -92,6 +95,7 @@
 
                 scramble();
 
+            // FIXME Don't trigger immediately on page load
             }, interval);
         }
 
