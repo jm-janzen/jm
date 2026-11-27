@@ -9,6 +9,9 @@ services:
   modeeb:
     image: mongo
     container_name: modeeb
+    # NOTE You'll need this if accessing outside of a container
+    #ports:
+    #  - 127.0.0.1:27017:27017
     volumes:
       - ${MONGO_VOLUME}:/docker-entrypoint-initdb.d/seed.js:ro
     env_file: ${ENV_FILE}
